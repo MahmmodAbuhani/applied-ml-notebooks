@@ -1,6 +1,6 @@
 # Machine Learning Notebook Portfolio
 
-[![CI](https://github.com/MahmmodAbuhani/ml-notebooks-portfolio/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MahmmodAbuhani/ml-notebooks-portfolio/actions/workflows/ci.yml)
+[![CI](https://github.com/MahmmodAbuhani/applied-ml-notebooks/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MahmmodAbuhani/applied-ml-notebooks/actions/workflows/ci.yml)
 
 Classical machine-learning portfolio focused on reviewable applied ML: public data, explicit leakage boundaries, fold-safe preprocessing, reproducible checks, readable model cards, and honest limitations.
 
@@ -11,16 +11,16 @@ This is not production ML infrastructure, deep-learning research, or a deployed 
 ## 90-Second Review
 
 1. Start with the [Bank Marketing case study](reports/bank_marketing_case_study.md) and [model card](reports/bank_marketing_response_model_card.md).
-2. Open the [Penguins demo guide](demo/README.md) or run the local app with `streamlit run streamlit_app.py`.
+2. Try the [hosted Penguins demo](https://ml-notebooks-portfolio-public.streamlit.app/) or inspect the [browser explorer source](site/index.html).
 3. Check the [reproduction guide](docs/REPRODUCING.md) and [verification tests](tests/).
 4. Review [data sources and rights](docs/DATA_SOURCES.md), then finish with the scope and limitations below.
 
 ## Recruiter Read
 
 - **Flagship:** Bank Marketing response modeling with a leakage-aware, source-order validation design.
-- **Interactive companion:** Palmer Penguins Streamlit and CLI demo with transparent inputs, probabilities, training context, and model-internal contributions.
+- **Interactive companion:** [hosted Palmer Penguins Streamlit demo](https://ml-notebooks-portfolio-public.streamlit.app/) plus a browser-native static explorer with transparent inputs, probabilities, training context, and model-internal contributions.
 - **Foundations:** five compact notebooks covering classification, regression, clustering, and model interpretation.
-- **Review evidence:** unit tests, CI, stripped source notebooks, reusable helper modules, model cards, an externally linked Bank execution snapshot, and temporary all-notebook workflow artifacts.
+- **Review evidence:** unit tests, CI, stripped source notebooks, reusable helper modules, model cards, cross-runtime browser parity fixtures, an externally linked Bank execution snapshot, and temporary all-notebook workflow artifacts.
 
 ## Flagship: Bank Marketing
 
@@ -49,7 +49,7 @@ Read the short written case study at [`reports/bank_marketing_case_study.md`](re
 
 [`notebooks/palmer_penguins_end_to_end.ipynb`](notebooks/palmer_penguins_end_to_end.ipynb) is the compact end-to-end workflow. It loads a pinned public Palmer Penguins CSV, verifies schema and checksum, keeps preprocessing inside pipelines, compares models, evaluates a holdout set, reviews errors, and explains feature contributions carefully.
 
-The companion demo is educational. It accepts plausible penguin morphology and collection-context inputs, predicts species probabilities, shows where the input sits relative to training data, and states the model boundary. The checked-in Streamlit app trains from public data at runtime and does not rely on hidden model artifacts or remote inference.
+The companion demos are educational. The [hosted Streamlit app](https://ml-notebooks-portfolio-public.streamlit.app/) accepts plausible penguin morphology and collection-context inputs, predicts species probabilities, shows where the input sits relative to training data, and states the model boundary. The [browser-native explorer source](site/index.html) reproduces a versioned logistic model locally with no backend. Both surfaces expose model-internal contributions without presenting them as biological causes.
 
 ```bash
 python3.12 -m venv .venv
@@ -86,17 +86,18 @@ The KMeans and Ridge figures are backed by the compact [foundations metrics snap
 ## Repository Map
 
 ```text
-ml-notebooks-portfolio/
+applied-ml-notebooks/
 ├── .github/workflows/      # fast CI plus scheduled/manual notebook execution
 ├── assets/figures/         # small generated preview figures
-├── demo/                   # Penguins CLI and Streamlit app
+├── demo/                   # Penguins CLI and Streamlit app guide
 ├── docs/                   # data sources and reproduction guidance
 ├── notebooks/              # stripped source notebooks
 ├── reports/                # model cards, case studies, and Bank execution evidence
-├── scripts/                # Bank evidence build and offline verification commands
+├── scripts/                # Evidence builders, browser export, and verification commands
+├── site/                   # Static browser explorer and versioned model artifact
 ├── src/ml_portfolio/       # reusable data, evaluation, ranking, plotting helpers
 ├── tests/                  # focused unit tests for reusable code
-├── streamlit_app.py        # root entry point for the local Penguins demo
+├── streamlit_app.py        # root entry point for the hosted/local Penguins demo
 ├── SECURITY.md             # private vulnerability reporting guidance
 ├── constraints-py312.txt   # transitive constraints for Python 3.12
 ├── requirements-dev.txt
@@ -114,6 +115,8 @@ python -m pip install -r requirements-dev.txt -c constraints-py312.txt
 python -m unittest discover -s tests -v
 python demo/predict_penguin_species.py
 python scripts/verify_bank_evidence.py
+python scripts/verify_penguins_browser_model.py --offline
+node --test tests/browser/model-parity.test.mjs tests/browser/reflow-contract.test.mjs
 pre-commit run --all-files
 ```
 
@@ -154,8 +157,8 @@ jupyter nbconvert \
 - Source notebooks stay stripped for clean review.
 - Bank Marketing is an analysis case study, not a customer-targeting product.
 - Penguins is an educational demo, not a wildlife field tool or production service.
-- The checked-in Streamlit app is local until a separately verified public URL is available.
-- No business impact, contact economics, deployment status, or external usage is claimed.
+- The hosted Streamlit demo is verified at [ml-notebooks-portfolio-public.streamlit.app](https://ml-notebooks-portfolio-public.streamlit.app/); the browser explorer remains a static, browser-local artifact.
+- No business impact, contact economics, production deployment status, or external usage is claimed.
 
 ## License
 

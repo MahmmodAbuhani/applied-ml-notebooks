@@ -1,0 +1,17 @@
+{
+  "artifact_id": "penguins-logistic-v1",
+  "boundary": "Educational browser inference, not a production or field-use system.",
+  "exporter_path": "scripts/export_penguins_browser_model.py",
+  "exporter_sha256": "7e66e797ad934d8da323da143e391db75f592e41fa03af36907daa315ad1d682",
+  "fixtures_path": "tests/browser/fixtures/penguins_reference_cases.json",
+  "fixtures_sha256": "ddc5367461d8b3acd7ad9cce77eab3b93a58251c7d4c2ed7f2499fefc82161f8",
+  "model_path": "site/model/penguins-logistic-v1.json",
+  "model_sha256": "a9a75ba4217622aa1812b6f04a725427cdddedbda4ae25ef49989e1529e8f3ae",
+  "raw_data_committed": false,
+  "schema_version": 1,
+  "source_commit": "8957207b78d6ccd1b4654a9dd9c9041b657478ab",
+  "source_license": "CC0-1.0",
+  "source_sha256": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93",
+  "source_url": "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/8957207b78d6ccd1b4654a9dd9c9041b657478ab/inst/extdata/penguins.csv",
+  "training_rows": 333
+}

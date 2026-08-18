@@ -1,0 +1,228 @@
+{
+  "artifact_id": "penguins-logistic-v1",
+  "classes": [
+    "Adelie",
+    "Chinstrap",
+    "Gentoo"
+  ],
+  "classifier": {
+    "coefficients": [
+      [
+        -2.3868657043848085,
+        1.0228947368883763,
+        -0.6934300556487797,
+        -0.04985843637894963,
+        0.04076287838343727,
+        -0.602624898361865,
+        0.5714277607826505,
+        -0.5888386663746195,
+        0.5984044071788407,
+        0.021211107766577385,
+        -0.11358627309691983,
+        0.10194090613456373
+      ],
+      [
+        2.004760789782773,
+        0.2966679693715419,
+        -0.3347351732499365,
+        -0.9444343103746892,
+        -0.7259203237463266,
+        1.1355602310415942,
+        -0.41277653590049734,
+        0.451719650855458,
+        -0.4548562794606878,
+        -0.05995501692254252,
+        0.07549412099738989,
+        -0.01867573268007762
+      ],
+      [
+        0.38210491460203744,
+        -1.3195627062599211,
+        1.0281652288987162,
+        0.994292746753639,
+        0.685157445362891,
+        -0.5329353326797276,
+        -0.15865122488215286,
+        0.13711901551916267,
+        -0.14354812771815212,
+        0.03874390915596492,
+        0.0380921520995311,
+        -0.08326517345448542
+      ]
+    ],
+    "intercepts": [
+      0.8018459848755183,
+      -0.4707771109515886,
+      -0.33106887392392476
+    ],
+    "probability": "stable_softmax"
+  },
+  "explanation": {
+    "causal": false,
+    "limit": 5,
+    "method": "signed transformed-feature contribution to the predicted-class logit",
+    "tie_break": "transformed feature order"
+  },
+  "inputs": {
+    "categorical": [
+      {
+        "default": "Dream",
+        "label": "Island",
+        "name": "island",
+        "options": [
+          "Biscoe",
+          "Dream",
+          "Torgersen"
+        ],
+        "role": "Collection context"
+      },
+      {
+        "default": "female",
+        "label": "Sex",
+        "name": "sex",
+        "options": [
+          "female",
+          "male"
+        ],
+        "role": "Recorded attribute"
+      },
+      {
+        "default": "2008",
+        "label": "Year",
+        "name": "year",
+        "options": [
+          "2007",
+          "2008",
+          "2009"
+        ],
+        "role": "Collection context"
+      }
+    ],
+    "numeric": [
+      {
+        "control_max": 62.9,
+        "control_min": 28.8,
+        "default": 45.2,
+        "label": "Bill length",
+        "name": "bill_length_mm",
+        "observed_max": 59.6,
+        "observed_median": 44.5,
+        "observed_min": 32.1,
+        "step": 0.1,
+        "unit": "mm"
+      },
+      {
+        "control_max": 22.508,
+        "control_min": 12.091999999999999,
+        "default": 16.4,
+        "label": "Bill depth",
+        "name": "bill_depth_mm",
+        "observed_max": 21.5,
+        "observed_median": 17.3,
+        "observed_min": 13.1,
+        "step": 0.1,
+        "unit": "mm"
+      },
+      {
+        "control_max": 238.08,
+        "control_min": 164.92,
+        "default": 196.0,
+        "label": "Flipper length",
+        "name": "flipper_length_mm",
+        "observed_max": 231.0,
+        "observed_median": 197.0,
+        "observed_min": 172.0,
+        "step": 1.0,
+        "unit": "mm"
+      },
+      {
+        "control_max": 6732.0,
+        "control_min": 2268.0,
+        "default": 4150.0,
+        "label": "Body mass",
+        "name": "body_mass_g",
+        "observed_max": 6300.0,
+        "observed_median": 4050.0,
+        "observed_min": 2700.0,
+        "step": 50.0,
+        "unit": "g"
+      }
+    ]
+  },
+  "model_family": "multinomial logistic regression",
+  "preprocessing": {
+    "categorical_features": [
+      "island",
+      "sex",
+      "year"
+    ],
+    "categorical_options": [
+      [
+        "Biscoe",
+        "Dream",
+        "Torgersen"
+      ],
+      [
+        "female",
+        "male"
+      ],
+      [
+        "2007",
+        "2008",
+        "2009"
+      ]
+    ],
+    "imputer_statistics": [
+      44.5,
+      17.3,
+      197.0,
+      4050.0
+    ],
+    "numeric_features": [
+      "bill_length_mm",
+      "bill_depth_mm",
+      "flipper_length_mm",
+      "body_mass_g"
+    ],
+    "scaler_mean": [
+      43.9927927927928,
+      17.164864864864867,
+      200.96696696696696,
+      4207.057057057057
+    ],
+    "scaler_scale": [
+      5.460450955071463,
+      1.9662764301482418,
+      13.994704772576716,
+      804.0058601595629
+    ]
+  },
+  "provenance": {
+    "exporter": "scripts/export_penguins_browser_model.py",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "python": "3.12.5",
+    "scikit_learn": "1.5.2",
+    "source_commit": "8957207b78d6ccd1b4654a9dd9c9041b657478ab",
+    "source_dataset": "Palmer Penguins",
+    "source_license": "CC0-1.0",
+    "source_sha256": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93",
+    "source_url": "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/8957207b78d6ccd1b4654a9dd9c9041b657478ab/inst/extdata/penguins.csv"
+  },
+  "schema_version": 1,
+  "training_rows": 333,
+  "transformed_features": [
+    "numeric__bill_length_mm",
+    "numeric__bill_depth_mm",
+    "numeric__flipper_length_mm",
+    "numeric__body_mass_g",
+    "categorical__island_Biscoe",
+    "categorical__island_Dream",
+    "categorical__island_Torgersen",
+    "categorical__sex_female",
+    "categorical__sex_male",
+    "categorical__year_2007",
+    "categorical__year_2008",
+    "categorical__year_2009"
+  ]
+}

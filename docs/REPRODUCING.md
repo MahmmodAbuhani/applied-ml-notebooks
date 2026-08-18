@@ -17,6 +17,8 @@ Run the repository checks:
 python -c "import ml_portfolio; print('import ok')"
 python -m unittest discover -s tests -v
 python demo/predict_penguin_species.py
+python scripts/verify_penguins_browser_model.py --offline
+node --test tests/browser/model-parity.test.mjs tests/browser/reflow-contract.test.mjs
 python -m py_compile \
   streamlit_app.py \
   demo/penguin_streamlit_app.py \
@@ -25,6 +27,14 @@ python -m py_compile \
 pre-commit run --all-files
 git diff --check
 ```
+
+The hosted Streamlit companion is available at [ml-notebooks-portfolio-public.streamlit.app](https://ml-notebooks-portfolio-public.streamlit.app/). To inspect the browser-native explorer locally, serve the static artifact:
+
+```bash
+python3 -m http.server 8000 --directory site
+```
+
+The browser parity tests compare the exported JavaScript model with Python reference fixtures across representative inputs and observed-range boundaries.
 
 Validate stripped notebooks:
 

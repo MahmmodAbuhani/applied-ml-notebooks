@@ -1,8 +1,13 @@
 # Demo: Palmer Penguins Species Classifier
 
-This folder contains the Palmer Penguins species-classification demo used by the portfolio. It runs through the root `streamlit_app.py` entrypoint.
+This folder contains the Palmer Penguins species-classification demos. It includes the hosted Streamlit app, a browser-native static explorer, and a CLI path that share the same documented model boundary.
 
 The demo is intentionally modest. It is not a wildlife field tool or a production decision system. It gives a reviewer a concrete way to inspect the inference flow: inputs, predicted species, class probabilities, the training-data geometry, simple model-internal feature contributions, and the public-data boundary.
+
+## Public Demo
+
+- [Hosted Streamlit demo](https://ml-notebooks-portfolio-public.streamlit.app/): interactive training-context view with probabilities and model-internal contributions.
+- [Browser explorer source](../site/index.html): static, browser-local inference with a versioned model artifact and Python parity fixtures.
 
 ## Streamlit App
 
@@ -47,7 +52,7 @@ The CLI uses the same reusable modeling helpers as the Streamlit app.
 
 ## Hosted Demo Boundary
 
-The root entrypoint and pinned dependencies are structured for a hosted Streamlit deployment. This repository does not claim a live URL until a signed-out browser check confirms that the deployed app loads and matches the reviewed source. GitHub Pages cannot run this Python app; it can host a static project page that links to the hosted app.
+The hosted Streamlit URL is verified from a signed-out browser at the reviewed public commit. It runs the root entrypoint with Python 3.12. The browser explorer is a separate static artifact: GitHub Pages can host it, but it does not run the Python app or provide a backend.
 
 ## Reproducibility Boundary
 

@@ -1,0 +1,2250 @@
+{
+  "cases": [
+    {
+      "expected": {
+        "logits": [
+          -1.179145406540067,
+          1.70563811525247,
+          -0.5264927087123928
+        ],
+        "predicted_species": "Chinstrap",
+        "probabilities": {
+          "Adelie": 0.048029998672493544,
+          "Chinstrap": 0.8597221965797411,
+          "Gentoo": 0.09224780474776526
+        },
+        "top_contributions": [
+          {
+            "contribution": 1.1355602310415942,
+            "direction": "supports",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.451719650855458,
+            "direction": "supports",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.44321644751784023,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.118803402803636,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": -0.11540132548198838,
+            "direction": "pulls against",
+            "feature": "bill_depth_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "default",
+      "input": {
+        "bill_depth_mm": 16.4,
+        "bill_length_mm": 45.2,
+        "body_mass_g": 4150.0,
+        "flipper_length_mm": 196.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          0.3298719695973632,
+          -0.3189533172320258,
+          -0.01091865236532985
+        ],
+        "predicted_species": "Adelie",
+        "probabilities": {
+          "Adelie": 0.44765418562490233,
+          "Chinstrap": 0.23397066410469708,
+          "Gentoo": 0.31837515027040053
+        },
+        "top_contributions": [
+          {
+            "contribution": -0.5888386663746195,
+            "direction": "pulls against",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": -0.22170979976942679,
+            "direction": "pulls against",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.19656106858725042,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": 0.07029989088970871,
+            "direction": "supports",
+            "feature": "bill_depth_mm"
+          },
+          {
+            "contribution": 0.04076287838343727,
+            "direction": "supports",
+            "feature": "island_Biscoe"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "categories-biscoe-female-2007",
+      "input": {
+        "bill_depth_mm": 17.3,
+        "bill_length_mm": 44.5,
+        "body_mass_g": 4050.0,
+        "flipper_length_mm": 197.0,
+        "island": "Biscoe",
+        "sex": "female",
+        "year": "2007"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          0.19507458873386596,
+          -0.18350417931209334,
+          -0.011570409421763683
+        ],
+        "predicted_species": "Adelie",
+        "probabilities": {
+          "Adelie": 0.40029744492458363,
+          "Chinstrap": 0.27413731076218406,
+          "Gentoo": 0.3255652443132323
+        },
+        "top_contributions": [
+          {
+            "contribution": -0.5888386663746195,
+            "direction": "pulls against",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": -0.22170979976942679,
+            "direction": "pulls against",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.19656106858725042,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": -0.11358627309691983,
+            "direction": "pulls against",
+            "feature": "year_2008"
+          },
+          {
+            "contribution": 0.07029989088970871,
+            "direction": "supports",
+            "feature": "bill_depth_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "categories-biscoe-female-2008",
+      "input": {
+        "bill_depth_mm": 17.3,
+        "bill_length_mm": 44.5,
+        "body_mass_g": 4050.0,
+        "flipper_length_mm": 197.0,
+        "island": "Biscoe",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          0.4106017679653496,
+          -0.27767403298956084,
+          -0.1329277349757802
+        ],
+        "predicted_species": "Adelie",
+        "probabilities": {
+          "Adelie": 0.4800453090041922,
+          "Chinstrap": 0.2411947485055476,
+          "Gentoo": 0.2787599424902602
+        },
+        "top_contributions": [
+          {
+            "contribution": -0.5888386663746195,
+            "direction": "pulls against",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": -0.22170979976942679,
+            "direction": "pulls against",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.19656106858725042,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": 0.10194090613456373,
+            "direction": "supports",
+            "feature": "year_2009"
+          },
+          {
+            "contribution": 0.07029989088970871,
+            "direction": "supports",
+            "feature": "bill_depth_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "categories-biscoe-female-2009",
+      "input": {
+        "bill_depth_mm": 17.3,
+        "bill_length_mm": 44.5,
+        "body_mass_g": 4050.0,
+        "flipper_length_mm": 197.0,
+        "island": "Biscoe",
+        "sex": "female",
+        "year": "2009"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          1.5171150431508234,
+          -1.2255292475481716,
+          -0.29158579560264464
+        ],
+        "predicted_species": "Adelie",
+        "probabilities": {
+          "Adelie": 0.8141554155482207,
+          "Chinstrap": 0.0524314700889456,
+          "Gentoo": 0.1334131143628337
+        },
+        "top_contributions": [
+          {
+            "contribution": 0.5984044071788407,
+            "direction": "supports",
+            "feature": "sex_male"
+          },
+          {
+            "contribution": -0.22170979976942679,
+            "direction": "pulls against",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.19656106858725042,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": 0.07029989088970871,
+            "direction": "supports",
+            "feature": "bill_depth_mm"
+          },
+          {
+            "contribution": 0.04076287838343727,
+            "direction": "supports",
+            "feature": "island_Biscoe"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "categories-biscoe-male-2007",
+      "input": {
+        "bill_depth_mm": 17.3,
+        "bill_length_mm": 44.5,
+        "body_mass_g": 4050.0,
+        "flipper_length_mm": 197.0,
+        "island": "Biscoe",
+        "sex": "male",
+        "year": "2007"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          1.382317662287326,
+          -1.0900801096282393,
+          -0.29223755265907847
+        ],
+        "predicted_species": "Adelie",
+        "probabilities": {
+          "Adelie": 0.786303352556022,
+          "Chinstrap": 0.06635007497591915,
+          "Gentoo": 0.14734657246805888
+        },
+        "top_contributions": [
+          {
+            "contribution": 0.5984044071788407,
+            "direction": "supports",
+            "feature": "sex_male"
+          },
+          {
+            "contribution": -0.22170979976942679,
+            "direction": "pulls against",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.19656106858725042,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": -0.11358627309691983,
+            "direction": "pulls against",
+            "feature": "year_2008"
+          },
+          {
+            "contribution": 0.07029989088970871,
+            "direction": "supports",
+            "feature": "bill_depth_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "categories-biscoe-male-2008",
+      "input": {
+        "bill_depth_mm": 17.3,
+        "bill_length_mm": 44.5,
+        "body_mass_g": 4050.0,
+        "flipper_length_mm": 197.0,
+        "island": "Biscoe",
+        "sex": "male",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          1.5978448415188096,
+          -1.1842499633057066,
+          -0.413594878213095
+        ],
+        "predicted_species": "Adelie",
+        "probabilities": {
+          "Adelie": 0.8363269711868552,
+          "Chinstrap": 0.05177590287965118,
+          "Gentoo": 0.11189712593349356
+        },
+        "top_contributions": [
+          {
+            "contribution": 0.5984044071788407,
+            "direction": "supports",
+            "feature": "sex_male"
+          },
+          {
+            "contribution": -0.22170979976942679,
+            "direction": "pulls against",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.19656106858725042,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": 0.10194090613456373,
+            "direction": "supports",
+            "feature": "year_2009"
+          },
+          {
+            "contribution": 0.07029989088970871,
+            "direction": "supports",
+            "feature": "bill_depth_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "categories-biscoe-male-2009",
+      "input": {
+        "bill_depth_mm": 17.3,
+        "bill_length_mm": 44.5,
+        "body_mass_g": 4050.0,
+        "flipper_length_mm": 197.0,
+        "island": "Biscoe",
+        "sex": "male",
+        "year": "2009"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          -0.31351580714793903,
+          1.542527237555895,
+          -1.2290114304079485
+        ],
+        "predicted_species": "Chinstrap",
+        "probabilities": {
+          "Adelie": 0.1282267175459298,
+          "Chinstrap": 0.8204417975513991,
+          "Gentoo": 0.05133148490267095
+        },
+        "top_contributions": [
+          {
+            "contribution": 1.1355602310415942,
+            "direction": "supports",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.451719650855458,
+            "direction": "supports",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.18621705966607605,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.18448879631514425,
+            "direction": "supports",
+            "feature": "body_mass_g"
+          },
+          {
+            "contribution": 0.09488470078815182,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "categories-dream-female-2007",
+      "input": {
+        "bill_depth_mm": 17.3,
+        "bill_length_mm": 44.5,
+        "body_mass_g": 4050.0,
+        "flipper_length_mm": 197.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2007"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          -0.44831318801143627,
+          1.6779763754758272,
+          -1.2296631874643824
+        ],
+        "predicted_species": "Chinstrap",
+        "probabilities": {
+          "Adelie": 0.10161063611766707,
+          "Chinstrap": 0.851873276572699,
+          "Gentoo": 0.04651608730963391
+        },
+        "top_contributions": [
+          {
+            "contribution": 1.1355602310415942,
+            "direction": "supports",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.451719650855458,
+            "direction": "supports",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.18621705966607605,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.18448879631514425,
+            "direction": "supports",
+            "feature": "body_mass_g"
+          },
+          {
+            "contribution": 0.09488470078815182,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "categories-dream-female-2008",
+      "input": {
+        "bill_depth_mm": 17.3,
+        "bill_length_mm": 44.5,
+        "body_mass_g": 4050.0,
+        "flipper_length_mm": 197.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          -0.2327860087799526,
+          1.58380652179836,
+          -1.3510205130183988
+        ],
+        "predicted_species": "Chinstrap",
+        "probabilities": {
+          "Adelie": 0.1337305993438595,
+          "Chinstrap": 0.8225587052023582,
+          "Gentoo": 0.04371069545378233
+        },
+        "top_contributions": [
+          {
+            "contribution": 1.1355602310415942,
+            "direction": "supports",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.451719650855458,
+            "direction": "supports",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.18621705966607605,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.18448879631514425,
+            "direction": "supports",
+            "feature": "body_mass_g"
+          },
+          {
+            "contribution": 0.09488470078815182,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "categories-dream-female-2009",
+      "input": {
+        "bill_depth_mm": 17.3,
+        "bill_length_mm": 44.5,
+        "body_mass_g": 4050.0,
+        "flipper_length_mm": 197.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2009"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          0.8737272664055212,
+          0.6359513072397491,
+          -1.5096785736452631
+        ],
+        "predicted_species": "Adelie",
+        "probabilities": {
+          "Adelie": 0.5317408894196515,
+          "Chinstrap": 0.4192135104294828,
+          "Gentoo": 0.04904560015086566
+        },
+        "top_contributions": [
+          {
+            "contribution": -0.602624898361865,
+            "direction": "pulls against",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.5984044071788407,
+            "direction": "supports",
+            "feature": "sex_male"
+          },
+          {
+            "contribution": -0.22170979976942679,
+            "direction": "pulls against",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.19656106858725042,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": 0.07029989088970871,
+            "direction": "supports",
+            "feature": "bill_depth_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "categories-dream-male-2007",
+      "input": {
+        "bill_depth_mm": 17.3,
+        "bill_length_mm": 44.5,
+        "body_mass_g": 4050.0,
+        "flipper_length_mm": 197.0,
+        "island": "Dream",
+        "sex": "male",
+        "year": "2007"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          0.738929885542024,
+          0.7714004451596816,
+          -1.510330330701697
+        ],
+        "predicted_species": "Chinstrap",
+        "probabilities": {
+          "Adelie": 0.4676217077179727,
+          "Chinstrap": 0.4830548517136608,
+          "Gentoo": 0.04932344056836657
+        },
+        "top_contributions": [
+          {
+            "contribution": 1.1355602310415942,
+            "direction": "supports",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": -0.4548562794606878,
+            "direction": "pulls against",
+            "feature": "sex_male"
+          },
+          {
+            "contribution": 0.18621705966607605,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.18448879631514425,
+            "direction": "supports",
+            "feature": "body_mass_g"
+          },
+          {
+            "contribution": 0.09488470078815182,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "categories-dream-male-2008",
+      "input": {
+        "bill_depth_mm": 17.3,
+        "bill_length_mm": 44.5,
+        "body_mass_g": 4050.0,
+        "flipper_length_mm": 197.0,
+        "island": "Dream",
+        "sex": "male",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          0.9544570647735076,
+          0.6772305914822139,
+          -1.6316876562557134
+        ],
+        "predicted_species": "Adelie",
+        "probabilities": {
+          "Adelie": 0.5454964022000568,
+          "Chinstrap": 0.4134223611194903,
+          "Gentoo": 0.041081236680452805
+        },
+        "top_contributions": [
+          {
+            "contribution": -0.602624898361865,
+            "direction": "pulls against",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.5984044071788407,
+            "direction": "supports",
+            "feature": "sex_male"
+          },
+          {
+            "contribution": -0.22170979976942679,
+            "direction": "pulls against",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.19656106858725042,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": 0.10194090613456373,
+            "direction": "supports",
+            "feature": "year_2009"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "categories-dream-male-2009",
+      "input": {
+        "bill_depth_mm": 17.3,
+        "bill_length_mm": 44.5,
+        "body_mass_g": 4050.0,
+        "flipper_length_mm": 197.0,
+        "island": "Dream",
+        "sex": "male",
+        "year": "2009"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          0.8605368519965764,
+          -0.005809529386196499,
+          -0.8547273226103738
+        ],
+        "predicted_species": "Adelie",
+        "probabilities": {
+          "Adelie": 0.6248433114557582,
+          "Chinstrap": 0.2627372636324726,
+          "Gentoo": 0.1124194249117692
+        },
+        "top_contributions": [
+          {
+            "contribution": -0.5888386663746195,
+            "direction": "pulls against",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.5714277607826505,
+            "direction": "supports",
+            "feature": "island_Torgersen"
+          },
+          {
+            "contribution": -0.22170979976942679,
+            "direction": "pulls against",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.19656106858725042,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": 0.07029989088970871,
+            "direction": "supports",
+            "feature": "bill_depth_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "categories-torgersen-female-2007",
+      "input": {
+        "bill_depth_mm": 17.3,
+        "bill_length_mm": 44.5,
+        "body_mass_g": 4050.0,
+        "flipper_length_mm": 197.0,
+        "island": "Torgersen",
+        "sex": "female",
+        "year": "2007"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          0.7257394711330792,
+          0.1296396085337359,
+          -0.8553790796668075
+        ],
+        "predicted_species": "Adelie",
+        "probabilities": {
+          "Adelie": 0.5692488072399383,
+          "Chinstrap": 0.3136311917516285,
+          "Gentoo": 0.11712000100843319
+        },
+        "top_contributions": [
+          {
+            "contribution": -0.5888386663746195,
+            "direction": "pulls against",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.5714277607826505,
+            "direction": "supports",
+            "feature": "island_Torgersen"
+          },
+          {
+            "contribution": -0.22170979976942679,
+            "direction": "pulls against",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.19656106858725042,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": -0.11358627309691983,
+            "direction": "pulls against",
+            "feature": "year_2008"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "categories-torgersen-female-2008",
+      "input": {
+        "bill_depth_mm": 17.3,
+        "bill_length_mm": 44.5,
+        "body_mass_g": 4050.0,
+        "flipper_length_mm": 197.0,
+        "island": "Torgersen",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          0.9412666503645628,
+          0.035469754856268465,
+          -0.976736405220824
+        ],
+        "predicted_species": "Adelie",
+        "probabilities": {
+          "Adelie": 0.6446955886384705,
+          "Chinstrap": 0.2605986161111843,
+          "Gentoo": 0.09470579525034517
+        },
+        "top_contributions": [
+          {
+            "contribution": -0.5888386663746195,
+            "direction": "pulls against",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.5714277607826505,
+            "direction": "supports",
+            "feature": "island_Torgersen"
+          },
+          {
+            "contribution": -0.22170979976942679,
+            "direction": "pulls against",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.19656106858725042,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": 0.10194090613456373,
+            "direction": "supports",
+            "feature": "year_2009"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "categories-torgersen-female-2009",
+      "input": {
+        "bill_depth_mm": 17.3,
+        "bill_length_mm": 44.5,
+        "body_mass_g": 4050.0,
+        "flipper_length_mm": 197.0,
+        "island": "Torgersen",
+        "sex": "female",
+        "year": "2009"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          2.0477799255500364,
+          -0.9123854597023424,
+          -1.1353944658476887
+        ],
+        "predicted_species": "Adelie",
+        "probabilities": {
+          "Adelie": 0.9146919813047208,
+          "Chinstrap": 0.047390509678227305,
+          "Gentoo": 0.03791750901705181
+        },
+        "top_contributions": [
+          {
+            "contribution": 0.5984044071788407,
+            "direction": "supports",
+            "feature": "sex_male"
+          },
+          {
+            "contribution": 0.5714277607826505,
+            "direction": "supports",
+            "feature": "island_Torgersen"
+          },
+          {
+            "contribution": -0.22170979976942679,
+            "direction": "pulls against",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.19656106858725042,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": 0.07029989088970871,
+            "direction": "supports",
+            "feature": "bill_depth_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "categories-torgersen-male-2007",
+      "input": {
+        "bill_depth_mm": 17.3,
+        "bill_length_mm": 44.5,
+        "body_mass_g": 4050.0,
+        "flipper_length_mm": 197.0,
+        "island": "Torgersen",
+        "sex": "male",
+        "year": "2007"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          1.9129825446865394,
+          -0.77693632178241,
+          -1.1360462229041224
+        ],
+        "predicted_species": "Adelie",
+        "probabilities": {
+          "Adelie": 0.8966266652120729,
+          "Chinstrap": 0.06086879860059305,
+          "Gentoo": 0.04250453618733413
+        },
+        "top_contributions": [
+          {
+            "contribution": 0.5984044071788407,
+            "direction": "supports",
+            "feature": "sex_male"
+          },
+          {
+            "contribution": 0.5714277607826505,
+            "direction": "supports",
+            "feature": "island_Torgersen"
+          },
+          {
+            "contribution": -0.22170979976942679,
+            "direction": "pulls against",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.19656106858725042,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": -0.11358627309691983,
+            "direction": "pulls against",
+            "feature": "year_2008"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "categories-torgersen-male-2008",
+      "input": {
+        "bill_depth_mm": 17.3,
+        "bill_length_mm": 44.5,
+        "body_mass_g": 4050.0,
+        "flipper_length_mm": 197.0,
+        "island": "Torgersen",
+        "sex": "male",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          2.128509723918023,
+          -0.8711061754598775,
+          -1.257403548458139
+        ],
+        "predicted_species": "Adelie",
+        "probabilities": {
+          "Adelie": 0.922804699461777,
+          "Chinstrap": 0.04596139107120912,
+          "Gentoo": 0.031233909467013855
+        },
+        "top_contributions": [
+          {
+            "contribution": 0.5984044071788407,
+            "direction": "supports",
+            "feature": "sex_male"
+          },
+          {
+            "contribution": 0.5714277607826505,
+            "direction": "supports",
+            "feature": "island_Torgersen"
+          },
+          {
+            "contribution": -0.22170979976942679,
+            "direction": "pulls against",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.19656106858725042,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": 0.10194090613456373,
+            "direction": "supports",
+            "feature": "year_2009"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "categories-torgersen-male-2009",
+      "input": {
+        "bill_depth_mm": 17.3,
+        "bill_length_mm": 44.5,
+        "body_mass_g": 4050.0,
+        "flipper_length_mm": 197.0,
+        "island": "Torgersen",
+        "sex": "male",
+        "year": "2009"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          4.547110718588298,
+          -3.1039218574019545,
+          -1.4431888611863384
+        ],
+        "predicted_species": "Adelie",
+        "probabilities": {
+          "Adelie": 0.9970303779746382,
+          "Chinstrap": 0.0004741406188181751,
+          "Gentoo": 0.002495481406543664
+        },
+        "top_contributions": [
+          {
+            "contribution": 5.198563173634521,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": -0.602624898361865,
+            "direction": "pulls against",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": -0.5888386663746195,
+            "direction": "pulls against",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": -0.3978973824357588,
+            "direction": "pulls against",
+            "feature": "bill_depth_mm"
+          },
+          {
+            "contribution": 0.24611052796617128,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "bill_length_mm-min",
+      "input": {
+        "bill_depth_mm": 16.4,
+        "bill_length_mm": 32.1,
+        "body_mass_g": 4150.0,
+        "flipper_length_mm": 196.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          -0.8731622548156491,
+          1.4486387274007062,
+          -0.5754764725850466
+        ],
+        "predicted_species": "Chinstrap",
+        "probabilities": {
+          "Adelie": 0.07974001196987039,
+          "Chinstrap": 0.8128710397570077,
+          "Gentoo": 0.10738894827312187
+        },
+        "top_contributions": [
+          {
+            "contribution": 1.1355602310415942,
+            "direction": "supports",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.451719650855458,
+            "direction": "supports",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.18621705966607605,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.118803402803636,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": -0.11540132548198838,
+            "direction": "pulls against",
+            "feature": "bill_depth_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "bill_length_mm-median",
+      "input": {
+        "bill_depth_mm": 16.4,
+        "bill_length_mm": 44.5,
+        "body_mass_g": 4150.0,
+        "flipper_length_mm": 196.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          -7.47365595629949,
+          6.992482665345882,
+          0.48117329095362343
+        ],
+        "predicted_species": "Chinstrap",
+        "probabilities": {
+          "Adelie": 5.20943330983067e-07,
+          "Chinstrap": 0.9985151543060994,
+          "Gentoo": 0.0014843247505697882
+        },
+        "top_contributions": [
+          {
+            "contribution": 5.730060997611252,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 1.1355602310415942,
+            "direction": "supports",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.451719650855458,
+            "direction": "supports",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.118803402803636,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": -0.11540132548198838,
+            "direction": "pulls against",
+            "feature": "bill_depth_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "bill_length_mm-max",
+      "input": {
+        "bill_depth_mm": 16.4,
+        "bill_length_mm": 59.6,
+        "body_mass_g": 4150.0,
+        "flipper_length_mm": 196.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          4.590822597406072,
+          -3.1406360556664925,
+          -1.4501865417395747
+        ],
+        "predicted_species": "Adelie",
+        "probabilities": {
+          "Adelie": 0.9971899581971083,
+          "Chinstrap": 0.00043757053143361627,
+          "Gentoo": 0.002372471271458077
+        },
+        "top_contributions": [
+          {
+            "contribution": 5.242275052452295,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": -0.602624898361865,
+            "direction": "pulls against",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": -0.5888386663746195,
+            "direction": "pulls against",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": -0.3978973824357588,
+            "direction": "pulls against",
+            "feature": "bill_depth_mm"
+          },
+          {
+            "contribution": 0.24611052796617128,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          }
+        ],
+        "warnings": [
+          "Bill length (mm) is outside the observed training range of 32.1 to 59.6."
+        ]
+      },
+      "id": "bill_length_mm-below",
+      "input": {
+        "bill_depth_mm": 16.4,
+        "bill_length_mm": 32.0,
+        "body_mass_g": 4150.0,
+        "flipper_length_mm": 196.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          -7.517367835117264,
+          7.02919686361042,
+          0.4881709715068598
+        ],
+        "predicted_species": "Chinstrap",
+        "probabilities": {
+          "Adelie": 4.807073621578258e-07,
+          "Chinstrap": 0.9985585918856245,
+          "Gentoo": 0.0014409274070135668
+        },
+        "top_contributions": [
+          {
+            "contribution": 5.76677519587579,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 1.1355602310415942,
+            "direction": "supports",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.451719650855458,
+            "direction": "supports",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.118803402803636,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": -0.11540132548198838,
+            "direction": "pulls against",
+            "feature": "bill_depth_mm"
+          }
+        ],
+        "warnings": [
+          "Bill length (mm) is outside the observed training range of 32.1 to 59.6."
+        ]
+      },
+      "id": "bill_length_mm-above",
+      "input": {
+        "bill_depth_mm": 16.4,
+        "bill_length_mm": 59.7,
+        "body_mass_g": 4150.0,
+        "flipper_length_mm": 196.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          -2.895868742066776,
+          1.2077405236853076,
+          1.688128218381484
+        ],
+        "predicted_species": "Gentoo",
+        "probabilities": {
+          "Adelie": 0.006271031449099982,
+          "Chinstrap": 0.3797640399322586,
+          "Gentoo": 0.6139649286186414
+        },
+        "top_contributions": [
+          {
+            "contribution": 2.7279196350116255,
+            "direction": "supports",
+            "feature": "bill_depth_mm"
+          },
+          {
+            "contribution": -0.5329353326797276,
+            "direction": "pulls against",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": -0.36491393076980727,
+            "direction": "pulls against",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": 0.13711901551916267,
+            "direction": "supports",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.0844765039760047,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "bill_depth_mm-min",
+      "input": {
+        "bill_depth_mm": 13.1,
+        "bill_length_mm": 45.2,
+        "body_mass_g": 4150.0,
+        "flipper_length_mm": 196.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          -0.7109481332145994,
+          1.8414283674980603,
+          -1.130480234283452
+        ],
+        "predicted_species": "Chinstrap",
+        "probabilities": {
+          "Adelie": 0.0689896379621936,
+          "Chinstrap": 0.8856597252636013,
+          "Gentoo": 0.04535063677420502
+        },
+        "top_contributions": [
+          {
+            "contribution": 1.1355602310415942,
+            "direction": "supports",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.451719650855458,
+            "direction": "supports",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.44321644751784023,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.118803402803636,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": 0.07549412099738989,
+            "direction": "supports",
+            "feature": "year_2008"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "bill_depth_mm-median",
+      "input": {
+        "bill_depth_mm": 17.3,
+        "bill_length_mm": 45.2,
+        "body_mass_g": 4150.0,
+        "flipper_length_mm": 196.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          1.473972475637577,
+          2.475116211310813,
+          -3.9490886869483877
+        ],
+        "predicted_species": "Chinstrap",
+        "probabilities": {
+          "Adelie": 0.26839828521834946,
+          "Chinstrap": 0.7304171080427652,
+          "Gentoo": 0.001184606738885299
+        },
+        "top_contributions": [
+          {
+            "contribution": 1.1355602310415942,
+            "direction": "supports",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.6540767705763544,
+            "direction": "supports",
+            "feature": "bill_depth_mm"
+          },
+          {
+            "contribution": 0.451719650855458,
+            "direction": "supports",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.44321644751784023,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.118803402803636,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "bill_depth_mm-max",
+      "input": {
+        "bill_depth_mm": 21.5,
+        "bill_length_mm": 45.2,
+        "body_mass_g": 4150.0,
+        "flipper_length_mm": 196.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          -2.947890661325161,
+          1.1926527178802422,
+          1.7552379434449341
+        ],
+        "predicted_species": "Gentoo",
+        "probabilities": {
+          "Adelie": 0.005742880374730676,
+          "Chinstrap": 0.3608651241176922,
+          "Gentoo": 0.633391995507577
+        },
+        "top_contributions": [
+          {
+            "contribution": 2.7950293600750755,
+            "direction": "supports",
+            "feature": "bill_depth_mm"
+          },
+          {
+            "contribution": -0.5329353326797276,
+            "direction": "pulls against",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": -0.36491393076980727,
+            "direction": "pulls against",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": 0.13711901551916267,
+            "direction": "supports",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.0844765039760047,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          }
+        ],
+        "warnings": [
+          "Bill depth (mm) is outside the observed training range of 13.1 to 21.5."
+        ]
+      },
+      "id": "bill_depth_mm-below",
+      "input": {
+        "bill_depth_mm": 13.0,
+        "bill_length_mm": 45.2,
+        "body_mass_g": 4150.0,
+        "flipper_length_mm": 196.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          1.5259943948959627,
+          2.490204017115879,
+          -4.016198412011839
+        ],
+        "predicted_species": "Chinstrap",
+        "probabilities": {
+          "Adelie": 0.2757379428931431,
+          "Chinstrap": 0.7231817362080856,
+          "Gentoo": 0.0010803208987714766
+        },
+        "top_contributions": [
+          {
+            "contribution": 1.1355602310415942,
+            "direction": "supports",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.66916457638142,
+            "direction": "supports",
+            "feature": "bill_depth_mm"
+          },
+          {
+            "contribution": 0.451719650855458,
+            "direction": "supports",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.44321644751784023,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.118803402803636,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          }
+        ],
+        "warnings": [
+          "Bill depth (mm) is outside the observed training range of 13.1 to 21.5."
+        ]
+      },
+      "id": "bill_depth_mm-above",
+      "input": {
+        "bill_depth_mm": 21.6,
+        "bill_length_mm": 45.2,
+        "body_mass_g": 4150.0,
+        "flipper_length_mm": 196.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          0.010041618554033405,
+          2.2796869636240906,
+          -2.289728582178113
+        ],
+        "predicted_species": "Chinstrap",
+        "probabilities": {
+          "Adelie": 0.0927966553479047,
+          "Chinstrap": 0.8978975210598134,
+          "Gentoo": 0.009305823592281971
+        },
+        "top_contributions": [
+          {
+            "contribution": 1.1355602310415942,
+            "direction": "supports",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.6928522511752558,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": 0.451719650855458,
+            "direction": "supports",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.44321644751784023,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": -0.11540132548198838,
+            "direction": "pulls against",
+            "feature": "bill_depth_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "flipper_length_mm-min",
+      "input": {
+        "bill_depth_mm": 16.4,
+        "bill_length_mm": 45.2,
+        "body_mass_g": 4150.0,
+        "flipper_length_mm": 172.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          -1.228694865918988,
+          1.681719413236986,
+          -0.4530245473179878
+        ],
+        "predicted_species": "Chinstrap",
+        "probabilities": {
+          "Adelie": 0.046432902357774,
+          "Chinstrap": 0.8527126233653209,
+          "Gentoo": 0.10085447427690507
+        },
+        "top_contributions": [
+          {
+            "contribution": 1.1355602310415942,
+            "direction": "supports",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.451719650855458,
+            "direction": "supports",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.44321644751784023,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": -0.11540132548198838,
+            "direction": "pulls against",
+            "feature": "bill_depth_mm"
+          },
+          {
+            "contribution": 0.09488470078815182,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "flipper_length_mm-median",
+      "input": {
+        "bill_depth_mm": 16.4,
+        "bill_length_mm": 45.2,
+        "body_mass_g": 4150.0,
+        "flipper_length_mm": 197.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          -2.9133764848022965,
+          0.8684835447105248,
+          2.044892940091782
+        ],
+        "predicted_species": "Gentoo",
+        "probabilities": {
+          "Adelie": 0.0053406006308214975,
+          "Chinstrap": 0.23443963948629531,
+          "Gentoo": 0.7602197598828832
+        },
+        "top_contributions": [
+          {
+            "contribution": 2.206471718034368,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": -0.5329353326797276,
+            "direction": "pulls against",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.5132987079177483,
+            "direction": "supports",
+            "feature": "bill_depth_mm"
+          },
+          {
+            "contribution": 0.13711901551916267,
+            "direction": "supports",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.0844765039760047,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "flipper_length_mm-max",
+      "input": {
+        "bill_depth_mm": 16.4,
+        "bill_length_mm": 45.2,
+        "body_mass_g": 4150.0,
+        "flipper_length_mm": 231.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          0.059591077932954484,
+          2.3036056656395747,
+          -2.3631967435725185
+        ],
+        "predicted_species": "Chinstrap",
+        "probabilities": {
+          "Adelie": 0.0950589182124101,
+          "Chinstrap": 0.8965118210868112,
+          "Gentoo": 0.008429260700778665
+        },
+        "top_contributions": [
+          {
+            "contribution": 1.1355602310415942,
+            "direction": "supports",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.7167709531907401,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": 0.451719650855458,
+            "direction": "supports",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.44321644751784023,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": -0.11540132548198838,
+            "direction": "pulls against",
+            "feature": "bill_depth_mm"
+          }
+        ],
+        "warnings": [
+          "Flipper length (mm) is outside the observed training range of 172.0 to 231.0."
+        ]
+      },
+      "id": "flipper_length_mm-below",
+      "input": {
+        "bill_depth_mm": 16.4,
+        "bill_length_mm": 45.2,
+        "body_mass_g": 4150.0,
+        "flipper_length_mm": 171.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          -2.9629259441812175,
+          0.8445648426950405,
+          2.118361101486187
+        ],
+        "predicted_species": "Gentoo",
+        "probabilities": {
+          "Adelie": 0.004830488462438752,
+          "Chinstrap": 0.21755210397981267,
+          "Gentoo": 0.7776174075577486
+        },
+        "top_contributions": [
+          {
+            "contribution": 2.279939879428773,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": -0.5329353326797276,
+            "direction": "pulls against",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.5132987079177483,
+            "direction": "supports",
+            "feature": "bill_depth_mm"
+          },
+          {
+            "contribution": 0.13711901551916267,
+            "direction": "supports",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.0844765039760047,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          }
+        ],
+        "warnings": [
+          "Flipper length (mm) is outside the observed training range of 172.0 to 231.0."
+        ]
+      },
+      "id": "flipper_length_mm-above",
+      "input": {
+        "bill_depth_mm": 16.4,
+        "bill_length_mm": 45.2,
+        "body_mass_g": 4150.0,
+        "flipper_length_mm": 232.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          -1.0892272401039054,
+          3.4088965340051924,
+          -2.3196692939012773
+        ],
+        "predicted_species": "Chinstrap",
+        "probabilities": {
+          "Adelie": 0.010972063302926542,
+          "Chinstrap": 0.9858223014082911,
+          "Gentoo": 0.003205635288782315
+        },
+        "top_contributions": [
+          {
+            "contribution": 1.7702811172228512,
+            "direction": "supports",
+            "feature": "body_mass_g"
+          },
+          {
+            "contribution": 1.1355602310415942,
+            "direction": "supports",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.451719650855458,
+            "direction": "supports",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.44321644751784023,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.118803402803636,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "body_mass_g-min",
+      "input": {
+        "bill_depth_mm": 16.4,
+        "bill_length_mm": 45.2,
+        "body_mass_g": 2700.0,
+        "flipper_length_mm": 196.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          -1.1729441536824008,
+          1.8231042130974855,
+          -0.6501600594150745
+        ],
+        "predicted_species": "Chinstrap",
+        "probabilities": {
+          "Adelie": 0.04406637460994099,
+          "Chinstrap": 0.881606117882425,
+          "Gentoo": 0.07432750750763406
+        },
+        "top_contributions": [
+          {
+            "contribution": 1.1355602310415942,
+            "direction": "supports",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.451719650855458,
+            "direction": "supports",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.44321644751784023,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.18448879631514425,
+            "direction": "supports",
+            "feature": "body_mass_g"
+          },
+          {
+            "contribution": 0.118803402803636,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "body_mass_g-median",
+      "input": {
+        "bill_depth_mm": 16.4,
+        "bill_length_mm": 45.2,
+        "body_mass_g": 4050.0,
+        "flipper_length_mm": 196.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          -1.312472342979893,
+          -0.8198829884153591,
+          2.132355331395263
+        ],
+        "predicted_species": "Gentoo",
+        "probabilities": {
+          "Adelie": 0.029433899861334763,
+          "Chinstrap": 0.04817000002485283,
+          "Gentoo": 0.9223961001138123
+        },
+        "top_contributions": [
+          {
+            "contribution": 2.588287089256276,
+            "direction": "supports",
+            "feature": "body_mass_g"
+          },
+          {
+            "contribution": -0.5329353326797276,
+            "direction": "pulls against",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.5132987079177483,
+            "direction": "supports",
+            "feature": "bill_depth_mm"
+          },
+          {
+            "contribution": -0.36491393076980727,
+            "direction": "pulls against",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": 0.13711901551916267,
+            "direction": "supports",
+            "feature": "sex_female"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "body_mass_g-max",
+      "input": {
+        "bill_depth_mm": 16.4,
+        "bill_length_mm": 45.2,
+        "body_mass_g": 6300.0,
+        "flipper_length_mm": 196.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          -1.0861266136750722,
+          3.4676295829277004,
+          -2.3815029692526184
+        ],
+        "predicted_species": "Chinstrap",
+        "probabilities": {
+          "Adelie": 0.010388279667944192,
+          "Chinstrap": 0.9867674633703601,
+          "Gentoo": 0.002844256961695629
+        },
+        "top_contributions": [
+          {
+            "contribution": 1.8290141661453587,
+            "direction": "supports",
+            "feature": "body_mass_g"
+          },
+          {
+            "contribution": 1.1355602310415942,
+            "direction": "supports",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.451719650855458,
+            "direction": "supports",
+            "feature": "sex_female"
+          },
+          {
+            "contribution": 0.44321644751784023,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 0.118803402803636,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          }
+        ],
+        "warnings": [
+          "Body mass (g) is outside the observed training range of 2700.0 to 6300.0."
+        ]
+      },
+      "id": "body_mass_g-below",
+      "input": {
+        "bill_depth_mm": 16.4,
+        "bill_length_mm": 45.2,
+        "body_mass_g": 2650.0,
+        "flipper_length_mm": 196.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          -1.3155729694087261,
+          -0.8786160373378671,
+          2.194189006746604
+        ],
+        "predicted_species": "Gentoo",
+        "probabilities": {
+          "Adelie": 0.02778681107477208,
+          "Chinstrap": 0.043013689195906486,
+          "Gentoo": 0.9291994997293214
+        },
+        "top_contributions": [
+          {
+            "contribution": 2.650120764607617,
+            "direction": "supports",
+            "feature": "body_mass_g"
+          },
+          {
+            "contribution": -0.5329353326797276,
+            "direction": "pulls against",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.5132987079177483,
+            "direction": "supports",
+            "feature": "bill_depth_mm"
+          },
+          {
+            "contribution": -0.36491393076980727,
+            "direction": "pulls against",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": 0.13711901551916267,
+            "direction": "supports",
+            "feature": "sex_female"
+          }
+        ],
+        "warnings": [
+          "Body mass (g) is outside the observed training range of 2700.0 to 6300.0."
+        ]
+      },
+      "id": "body_mass_g-above",
+      "input": {
+        "bill_depth_mm": 16.4,
+        "bill_length_mm": 45.2,
+        "body_mass_g": 6350.0,
+        "flipper_length_mm": 196.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          4.109492574591852,
+          -1.324512181844775,
+          -2.784980392747066
+        ],
+        "predicted_species": "Adelie",
+        "probabilities": {
+          "Adelie": 0.9946498297046824,
+          "Chinstrap": 0.004342221088887972,
+          "Gentoo": 0.001007949206429646
+        },
+        "top_contributions": [
+          {
+            "contribution": 5.198563173634521,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": -2.114620717962468,
+            "direction": "pulls against",
+            "feature": "bill_depth_mm"
+          },
+          {
+            "contribution": 1.4352975530602714,
+            "direction": "supports",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": -0.602624898361865,
+            "direction": "pulls against",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": -0.5888386663746195,
+            "direction": "pulls against",
+            "feature": "sex_female"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "small-morphology",
+      "input": {
+        "bill_depth_mm": 13.1,
+        "bill_length_mm": 32.1,
+        "body_mass_g": 2700.0,
+        "flipper_length_mm": 172.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          -6.688096088823902,
+          4.399285087194451,
+          2.2888110016294596
+        ],
+        "predicted_species": "Chinstrap",
+        "probabilities": {
+          "Adelie": 1.3649918914483821e-05,
+          "Chinstrap": 0.8919048694720267,
+          "Gentoo": 0.10808148060905864
+        },
+        "top_contributions": [
+          {
+            "contribution": 5.730060997611252,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": -2.4584984051977004,
+            "direction": "pulls against",
+            "feature": "body_mass_g"
+          },
+          {
+            "contribution": 1.1355602310415942,
+            "direction": "supports",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": -0.7183511677383096,
+            "direction": "pulls against",
+            "feature": "flipper_length_mm"
+          },
+          {
+            "contribution": 0.6540767705763544,
+            "direction": "supports",
+            "feature": "bill_depth_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "large-morphology",
+      "input": {
+        "bill_depth_mm": 21.5,
+        "bill_length_mm": 59.6,
+        "body_mass_g": 6300.0,
+        "flipper_length_mm": 231.0,
+        "island": "Dream",
+        "sex": "female",
+        "year": "2008"
+      }
+    },
+    {
+      "expected": {
+        "logits": [
+          -0.9490121115566773,
+          3.28640419859411,
+          -2.337392087037424
+        ],
+        "predicted_species": "Chinstrap",
+        "probabilities": {
+          "Adelie": 0.014216679120244654,
+          "Chinstrap": 0.9822365560026584,
+          "Gentoo": 0.003546764877097075
+        },
+        "top_contributions": [
+          {
+            "contribution": 2.2422121624801816,
+            "direction": "supports",
+            "feature": "bill_length_mm"
+          },
+          {
+            "contribution": 1.1355602310415942,
+            "direction": "supports",
+            "feature": "island_Dream"
+          },
+          {
+            "contribution": 0.5956201387726979,
+            "direction": "supports",
+            "feature": "body_mass_g"
+          },
+          {
+            "contribution": -0.4548562794606878,
+            "direction": "pulls against",
+            "feature": "sex_male"
+          },
+          {
+            "contribution": 0.1863547906193224,
+            "direction": "supports",
+            "feature": "bill_depth_mm"
+          }
+        ],
+        "warnings": []
+      },
+      "id": "chinstrap-like",
+      "input": {
+        "bill_depth_mm": 18.4,
+        "bill_length_mm": 50.1,
+        "body_mass_g": 3700.0,
+        "flipper_length_mm": 198.0,
+        "island": "Dream",
+        "sex": "male",
+        "year": "2009"
+      }
+    }
+  ],
+  "model_artifact_id": "penguins-logistic-v1",
+  "reference": "fitted Python scikit-learn pipeline",
+  "schema_version": 1,
+  "tolerance": 1e-10
+}
