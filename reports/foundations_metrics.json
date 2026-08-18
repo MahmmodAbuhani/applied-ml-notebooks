@@ -1,0 +1,49 @@
+{
+  "boundary": "raw data is not redistributed. This snapshot records compact educational benchmark results from the two foundations notebooks only.",
+  "datasets": {
+    "diabetes": {
+      "attribution": "Loaded from the scikit-learn runtime; raw data is not redistributed.",
+      "loader": "sklearn.datasets.load_diabetes",
+      "source": "scikit-learn bundled toy dataset"
+    },
+    "wine": {
+      "attribution": "UCI Wine Dataset, CC BY 4.0; attribution required.",
+      "loader": "sklearn.datasets.load_wine",
+      "source": "UCI Machine Learning Repository Wine dataset"
+    }
+  },
+  "environment": {
+    "nbclient": "0.10.0",
+    "nbformat": "5.10.4",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "python": "3.12",
+    "scikit_learn": "1.5.2"
+  },
+  "regeneration_command": "python scripts/build_foundations_metrics.py --write",
+  "results": {
+    "kmeans": {
+      "adjusted_rand_index": 0.897,
+      "random_state": 42,
+      "selected_k": 3,
+      "silhouette": 0.285
+    },
+    "regression": {
+      "random_state": 42,
+      "selected_model": "Ridge Regression",
+      "test_r2": 0.457,
+      "test_rmse": 53.63
+    }
+  },
+  "schema_version": 1,
+  "source_notebooks": {
+    "kmeans": {
+      "path": "notebooks/kmeans_clustering.ipynb",
+      "sha256": "853512432a1770abbe988e6fff9abc6e48d95e76e2db50709db83cc93becf05b"
+    },
+    "regression": {
+      "path": "notebooks/regression_modeling_project.ipynb",
+      "sha256": "1a8d7c1b2ce4d8afd37dd550ef395dc10d846544552f4e77f48009aa2cbb85e5"
+    }
+  }
+}

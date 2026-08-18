@@ -1,0 +1,45 @@
+minimum_pre_commit_version: "3.7.0"
+
+default_language_version:
+  python: python3.12
+
+ci:
+  autofix_prs: false
+  autoupdate_schedule: quarterly
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+        args: ["--maxkb=5120"]
+      - id: check-json
+        types_or: [json, jupyter]
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: end-of-file-fixer
+        exclude: \.ipynb$
+      - id: trailing-whitespace
+        exclude: \.ipynb$
+
+  - repo: https://github.com/kynan/nbstripout
+    rev: 0.8.1
+    hooks:
+      - id: nbstripout
+        types: [jupyter]
+
+  - repo: https://github.com/nbQA-dev/nbQA
+    rev: 1.9.1
+    hooks:
+      - id: nbqa-ruff
+        args: ["--line-length=100", "--select=E9,F63,F7,F82"]
+        additional_dependencies: ["ruff==0.7.3"]
+
+  - repo: local
+    hooks:
+      - id: ruff
+        name: ruff
+        entry: ruff check
+        language: system
+        types: [python]
+        args: ["--line-length=100", "--select=E9,F63,F7,F82"]

@@ -1,0 +1,65 @@
+{
+  "artifact": {
+    "assets": [
+      {
+        "alt": "Late-period precision-recall curve showing weak ranking under source-order validation.",
+        "bytes": 66000,
+        "path": "reports/evidence/assets/figure-01.png",
+        "sha256": "2f3e96b0f9ffdff146ed1c53a5fb03d64fd1a963c4374c5ddae2a39bcb1f8d68"
+      },
+      {
+        "alt": "Late-period lift by contact budget showing exploratory top-1 concentration fading at wider budgets.",
+        "bytes": 75988,
+        "path": "reports/evidence/assets/figure-02.png",
+        "sha256": "701e7b19c005f9842431c9e1727821055061455354328817404ddf1d96991034"
+      },
+      {
+        "alt": "Cumulative gains curve comparing source-order ranking with random ranking.",
+        "bytes": 83770,
+        "path": "reports/evidence/assets/figure-03.png",
+        "sha256": "08ddb0493de693607e1847d367a9ca55a55f89dbd7165ac6fe41c4d768acec9f"
+      },
+      {
+        "alt": "Late-period calibration diagnostic showing predicted scores against observed response rates.",
+        "bytes": 67920,
+        "path": "reports/evidence/assets/figure-04.png",
+        "sha256": "bc802837a467533d294be2461cbdaeb5027842a1a0fac0034ce73a00622cd09a"
+      },
+      {
+        "alt": "Late-period permutation-importance chart showing small descriptive feature effects.",
+        "bytes": 68371,
+        "path": "reports/evidence/assets/figure-05.png",
+        "sha256": "ed6cb634536c5098bee0ba08dca32b694ca8e5648bd96695f11768612828abc9"
+      }
+    ],
+    "bytes": 320700,
+    "path": "reports/evidence/bank_marketing_executed.html",
+    "sha256": "d05f9e95fb81332954dbf618f96d93b6aaf0dcbf3dc7cac18547f2e51a1bd027"
+  },
+  "boundary": "This is a historical execution snapshot for review, not a live report, deployed model, or policy recommendation.",
+  "environment": {
+    "matplotlib": "3.9.2",
+    "nbclient": "0.10.0",
+    "nbconvert": "7.17.1",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "python": "3.12.5",
+    "scikit-learn": "1.5.2"
+  },
+  "input": {
+    "name": "UCI Bank Marketing archive",
+    "sha256": "e0bf5f5de5b846e2f18e9d90606637267d46dfa260e0f17bb12e605db5efbeb4",
+    "url": "https://archive.ics.uci.edu/static/public/222/bank+marketing.zip",
+    "verification": "downloaded and SHA-256 checked by the notebook loader"
+  },
+  "regeneration_command": "python scripts/build_bank_evidence.py",
+  "schema_version": 1,
+  "source": {
+    "commit": "085384fe1da60bcd917749b7a08d4f21b118a4b4",
+    "notebook": {
+      "path": "notebooks/bank_marketing_response_model.ipynb",
+      "sha256": "7a6e6918f57584e524cf187cd16e773a038b3b96fea8c2fe4d31f10b93492b74"
+    },
+    "tree": "c9de6c13675cacd56ebe25ff1f165897c58c3712"
+  }
+}
