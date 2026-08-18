@@ -34,7 +34,7 @@
     ],
     "bytes": 320700,
     "path": "reports/evidence/bank_marketing_executed.html",
-    "sha256": "d05f9e95fb81332954dbf618f96d93b6aaf0dcbf3dc7cac18547f2e51a1bd027"
+    "sha256": "f5cb2c7c72963ed4e00bd4680eb0811a3bec2300002a94ee0c0ccfabd624f4be"
   },
   "boundary": "This is a historical execution snapshot for review, not a live report, deployed model, or policy recommendation.",
   "environment": {
@@ -55,11 +55,11 @@
   "regeneration_command": "python scripts/build_bank_evidence.py",
   "schema_version": 1,
   "source": {
-    "commit": "085384fe1da60bcd917749b7a08d4f21b118a4b4",
+    "commit": "45e45bb2b4cba36ac409851ff818487da6fd8a1a",
     "notebook": {
       "path": "notebooks/bank_marketing_response_model.ipynb",
       "sha256": "7a6e6918f57584e524cf187cd16e773a038b3b96fea8c2fe4d31f10b93492b74"
     },
-    "tree": "c9de6c13675cacd56ebe25ff1f165897c58c3712"
+    "tree": "28f80f06718bcb5127871a2523f3fdc038de0d94"
   }
 }
