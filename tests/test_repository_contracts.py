@@ -253,6 +253,7 @@ class PublicProseContractTests(unittest.TestCase):
     def test_demo_surfaces_offer_reviewer_navigation(self) -> None:
         app_text = (ROOT / "demo" / "penguin_streamlit_app.py").read_text(encoding="utf-8")
         static_explorer = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
+        pages_url = "https://mahmmodabuhani.github.io/applied-ml-notebooks/"
 
         for text in (app_text, static_explorer):
             with self.subTest(surface="app" if text is app_text else "static"):
@@ -260,7 +261,18 @@ class PublicProseContractTests(unittest.TestCase):
                 self.assertIn("palmer_penguins_end_to_end.ipynb", text)
                 self.assertIn("palmer_penguins_model_card.md", text)
 
+        self.assertIn(pages_url, app_text)
+        self.assertIn("STATIC_EXPLORER_SOURCE_URL", app_text)
+        self.assertIn("/blob/main/site/index.html", app_text)
+        self.assertIn("Start with a plausible profile", app_text)
         self.assertIn("ml-notebooks-portfolio-public.streamlit.app", static_explorer)
+
+    def test_static_explorer_offers_a_primary_explorer_action(self) -> None:
+        static_explorer = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
+
+        self.assertIn('class="hero-cta"', static_explorer)
+        self.assertIn('href="#explorer"', static_explorer)
+        self.assertIn("Try the explorer", static_explorer)
 
 
 if __name__ == "__main__":
