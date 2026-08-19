@@ -21,6 +21,10 @@ from ml_portfolio.penguins import (
 
 ACCENT = "#2F6F73"
 HIGHLIGHT = "#C2703D"
+REPO_URL = "https://github.com/MahmmodAbuhani/applied-ml-notebooks"
+NOTEBOOK_URL = f"{REPO_URL}/blob/main/notebooks/palmer_penguins_end_to_end.ipynb"
+MODEL_CARD_URL = f"{REPO_URL}/blob/main/reports/palmer_penguins_model_card.md"
+STATIC_EXPLORER_URL = f"{REPO_URL}/blob/main/site/index.html"
 NUMERIC_LABELS = {
     "bill_length_mm": "Bill length (mm)",
     "bill_depth_mm": "Bill depth (mm)",
@@ -63,7 +67,7 @@ def _probability_summary(probabilities: dict[str, float]) -> str:
         f"{row.species} {row.probability:.1%}"
         for row in values.itertuples(index=False)
     )
-    return f"Probability readout: {readout}."
+    return f"Model probabilities, not calibrated field confidence: {readout}."
 
 
 def _probability_chart(probabilities: dict[str, float]) -> alt.Chart:
@@ -264,7 +268,7 @@ def main() -> None:
 
     st.title("Penguin Species Demo")
     st.caption(
-        "Educational public-data demo. Trains from a pinned CSV; "
+        "Educational public-data demo. Hosted on Streamlit Community Cloud; "
         "not a production decision system."
     )
 
@@ -276,11 +280,12 @@ def main() -> None:
 
     st.markdown(
         """
-        Palmer Penguins is public, compact, and easy to inspect.
+        The Palmer Penguins dataset is small, curated, and easy to audit.
 
-        The demo shows inputs, probabilities, feature explanation, and limits.
+        This app shows inputs, model probabilities, feature contributions, and limits.
 
-        It does not claim production deployment or biological causality.
+        Contributions describe the fitted model's calculation. They are not biological
+        causes or calibrated field confidence.
         """
     )
 
@@ -380,13 +385,15 @@ def main() -> None:
         - Training: the model is fit from public data when the app starts.
         - App code: this repository does not persist inputs, write them to a
           database, or send them to a model API.
-        - Hosting: the checked-in app runs locally. A public URL is only claimed
-          after a signed-out hosted deployment has been verified.
+        - Hosting: this public app runs on Streamlit Community Cloud. It may wake on
+          demand and remains an educational interface, not a production service.
         - Scope: educational classifier demo, not a
           wildlife field tool or production service.
-        - Review path: open `notebooks/palmer_penguins_end_to_end.ipynb` for
+        - Review path: read the [Penguins notebook]({NOTEBOOK_URL}) for
           holdout metrics, repeated training-only checks, feature ablation, and
           error review.
+        - Further reading: [model card]({MODEL_CARD_URL}), [repository]({REPO_URL}),
+          and [static explorer source]({STATIC_EXPLORER_URL}).
         """
     )
 

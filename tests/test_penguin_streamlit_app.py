@@ -119,7 +119,7 @@ class PenguinStreamlitAppTests(unittest.TestCase):
 
         self.assertEqual(
             summary,
-            "Probability readout: Chinstrap 86.0%; Gentoo 9.0%; Adelie 5.0%.",
+            "Model probabilities, not calibrated field confidence: Chinstrap 86.0%; Gentoo 9.0%; Adelie 5.0%.",
         )
 
     def test_training_summary_describes_the_marked_input(self):

@@ -219,6 +219,37 @@ class PublicProseContractTests(unittest.TestCase):
                     failures.append(f"{path}: {phrase}")
         self.assertEqual(failures, [])
 
+    def test_public_surfaces_share_the_current_hosting_boundary(self) -> None:
+        app_text = (ROOT / "demo" / "penguin_streamlit_app.py").read_text(encoding="utf-8")
+        demo_readme = (ROOT / "demo" / "README.md").read_text(encoding="utf-8")
+        model_card = (ROOT / "reports" / "palmer_penguins_model_card.md").read_text(
+            encoding="utf-8"
+        )
+        root_readme = (ROOT / "README.md").read_text(encoding="utf-8")
+
+        self.assertIn("Hosted on Streamlit Community Cloud", app_text)
+        self.assertNotIn("the checked-in app runs locally", app_text)
+        self.assertNotIn("A public URL is only claimed", app_text)
+        self.assertIn("09cc8d26d365560915b423cd98f1abf5158f1b53", demo_readme)
+        self.assertIn("2026-08-19", demo_readme)
+        self.assertIn("demo/README.md", model_card)
+        self.assertNotIn("The hosted Streamlit demo is verified at", model_card)
+        self.assertIn("Average Precision (AP)", root_readme)
+        self.assertIn("versioned Bank execution snapshot", root_readme)
+        self.assertNotIn("externally linked Bank execution snapshot", root_readme)
+
+    def test_demo_surfaces_offer_reviewer_navigation(self) -> None:
+        app_text = (ROOT / "demo" / "penguin_streamlit_app.py").read_text(encoding="utf-8")
+        static_explorer = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
+
+        for text in (app_text, static_explorer):
+            with self.subTest(surface="app" if text is app_text else "static"):
+                self.assertIn("https://github.com/MahmmodAbuhani/applied-ml-notebooks", text)
+                self.assertIn("palmer_penguins_end_to_end.ipynb", text)
+                self.assertIn("palmer_penguins_model_card.md", text)
+
+        self.assertIn("ml-notebooks-portfolio-public.streamlit.app", static_explorer)
+
 
 if __name__ == "__main__":
     unittest.main()

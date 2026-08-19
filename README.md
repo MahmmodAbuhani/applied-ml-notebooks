@@ -15,12 +15,20 @@ This is not production ML infrastructure, deep-learning research, or a deployed 
 3. Check the [reproduction guide](docs/REPRODUCING.md) and [verification tests](tests/).
 4. Review [data sources and rights](docs/DATA_SOURCES.md), then finish with the scope and limitations below.
 
+The three review surfaces have different jobs:
+
+| Surface | Best for | Runtime |
+| --- | --- | --- |
+| [Bank case study](reports/bank_marketing_case_study.md) | Applied question, leakage boundary, and validation result | Notebook and versioned report |
+| [Hosted Streamlit demo](https://ml-notebooks-portfolio-public.streamlit.app/) | Interactive Penguins inputs, model probabilities, and contributions | Streamlit Community Cloud |
+| [Browser explorer source](site/index.html) | Browser-local model parity and accessibility review | Static files, no backend |
+
 ## Recruiter Read
 
 - **Flagship:** Bank Marketing response modeling with a leakage-aware, source-order validation design.
 - **Interactive companion:** [hosted Palmer Penguins Streamlit demo](https://ml-notebooks-portfolio-public.streamlit.app/) plus a browser-native static explorer with transparent inputs, probabilities, training context, and model-internal contributions.
 - **Foundations:** five compact notebooks covering classification, regression, clustering, and model interpretation.
-- **Review evidence:** unit tests, CI, stripped source notebooks, reusable helper modules, model cards, cross-runtime browser parity fixtures, an externally linked Bank execution snapshot, and temporary all-notebook workflow artifacts.
+- **Review evidence:** unit tests, CI, stripped source notebooks, reusable helper modules, model cards, cross-runtime browser parity fixtures, a versioned Bank execution snapshot, and temporary all-notebook workflow artifacts.
 
 ## Flagship: Bank Marketing
 
@@ -29,6 +37,8 @@ This is not production ML infrastructure, deep-learning research, or a deployed 
 The notebook excludes `duration`, which records call length and is only known after contact. It freezes the earliest 75% of source-order rows as the development segment, selects the model recipe only inside that early segment with four expanding-window folds, refits on all early rows, and scores the latest 25% once. Because the public CSV has row order but no complete row-level timestamp, this is an order-based temporal stress test, not a formal timestamped deployment validation.
 
 The result is a validation finding, not a targeting win: pooled early and late ranking are weak, and the 10% contact budget has `0.79x` lift.
+
+The table uses Average Precision (AP), which summarizes precision across recall thresholds, and area under the receiver operating characteristic curve (ROC AUC), which summarizes ranking across classification thresholds. Lift compares response concentration in a selected contact budget with the overall response rate.
 
 | Evidence | Result | Read |
 | --- | ---: | --- |
@@ -49,7 +59,7 @@ Read the short written case study at [`reports/bank_marketing_case_study.md`](re
 
 [`notebooks/palmer_penguins_end_to_end.ipynb`](notebooks/palmer_penguins_end_to_end.ipynb) is the compact end-to-end workflow. It loads a pinned public Palmer Penguins CSV, verifies schema and checksum, keeps preprocessing inside pipelines, compares models, evaluates a holdout set, reviews errors, and explains feature contributions carefully.
 
-The companion demos are educational. The [hosted Streamlit app](https://ml-notebooks-portfolio-public.streamlit.app/) accepts plausible penguin morphology and collection-context inputs, predicts species probabilities, shows where the input sits relative to training data, and states the model boundary. The [browser-native explorer source](site/index.html) reproduces a versioned logistic model locally with no backend. Both surfaces expose model-internal contributions without presenting them as biological causes.
+The companion demos are educational. The [hosted Streamlit app](https://ml-notebooks-portfolio-public.streamlit.app/) accepts plausible penguin morphology and collection-context inputs, predicts model probabilities, shows where the input sits relative to training data, and states the model boundary. The [browser-native explorer source](site/index.html) reproduces a versioned logistic model locally with no backend. Both surfaces expose model-internal contributions without presenting them as biological causes. The dated hosted-demo check is recorded in [`demo/README.md`](demo/README.md); the static explorer is currently a checked-in source artifact rather than a claimed live Pages deployment.
 
 ```bash
 python3.12 -m venv .venv
@@ -157,7 +167,8 @@ jupyter nbconvert \
 - Source notebooks stay stripped for clean review.
 - Bank Marketing is an analysis case study, not a customer-targeting product.
 - Penguins is an educational demo, not a wildlife field tool or production service.
-- The hosted Streamlit demo is verified at [ml-notebooks-portfolio-public.streamlit.app](https://ml-notebooks-portfolio-public.streamlit.app/); the browser explorer remains a static, browser-local artifact.
+- The hosted Streamlit demo is available at [ml-notebooks-portfolio-public.streamlit.app](https://ml-notebooks-portfolio-public.streamlit.app/); its dated public-commit check is recorded in [`demo/README.md`](demo/README.md).
+- The browser explorer is a checked-in, browser-local artifact. The repository includes a Pages workflow, but no live Pages URL is claimed yet.
 - No business impact, contact economics, production deployment status, or external usage is claimed.
 
 ## License
