@@ -24,7 +24,8 @@ HIGHLIGHT = "#C2703D"
 REPO_URL = "https://github.com/MahmmodAbuhani/applied-ml-notebooks"
 NOTEBOOK_URL = f"{REPO_URL}/blob/main/notebooks/palmer_penguins_end_to_end.ipynb"
 MODEL_CARD_URL = f"{REPO_URL}/blob/main/reports/palmer_penguins_model_card.md"
-STATIC_EXPLORER_URL = f"{REPO_URL}/blob/main/site/index.html"
+STATIC_EXPLORER_URL = "https://mahmmodabuhani.github.io/applied-ml-notebooks/"
+STATIC_EXPLORER_SOURCE_URL = f"{REPO_URL}/blob/main/site/index.html"
 NUMERIC_LABELS = {
     "bill_length_mm": "Bill length (mm)",
     "bill_depth_mm": "Bill depth (mm)",
@@ -293,6 +294,10 @@ def main() -> None:
 
     with controls:
         st.subheader("Penguin Inputs")
+        st.caption(
+            "Start with a plausible profile, then move a measurement beyond the observed "
+            "range to see the model boundary."
+        )
         st.caption("Morphology values are numeric; island, sex, and year are collection context.")
 
         island = st.selectbox(
@@ -393,7 +398,8 @@ def main() -> None:
           holdout metrics, repeated training-only checks, feature ablation, and
           error review.
         - Further reading: [model card]({MODEL_CARD_URL}), [repository]({REPO_URL}),
-          and [static explorer source]({STATIC_EXPLORER_URL}).
+          [live browser explorer]({STATIC_EXPLORER_URL}), and
+          [explorer source]({STATIC_EXPLORER_SOURCE_URL}).
         """
     )
 
