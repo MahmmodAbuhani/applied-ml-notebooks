@@ -11,7 +11,7 @@ This is not production ML infrastructure, deep-learning research, or a deployed 
 ## 90-Second Review
 
 1. Start with the [Bank Marketing case study](reports/bank_marketing_case_study.md) and [model card](reports/bank_marketing_response_model_card.md).
-2. Try the [hosted Penguins demo](https://ml-notebooks-portfolio-public.streamlit.app/) or inspect the [browser explorer source](site/index.html).
+2. Try the [hosted Penguins demo](https://ml-notebooks-portfolio-public.streamlit.app/) or open the [live browser explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/). You can also inspect the [explorer source](site/index.html).
 3. Check the [reproduction guide](docs/REPRODUCING.md) and [verification tests](tests/).
 4. Review [data sources and rights](docs/DATA_SOURCES.md), then finish with the scope and limitations below.
 
@@ -21,7 +21,7 @@ The three review surfaces have different jobs:
 | --- | --- | --- |
 | [Bank case study](reports/bank_marketing_case_study.md) | Applied question, leakage boundary, and validation result | Notebook and versioned report |
 | [Hosted Streamlit demo](https://ml-notebooks-portfolio-public.streamlit.app/) | Interactive Penguins inputs, model probabilities, and contributions | Streamlit Community Cloud |
-| [Browser explorer source](site/index.html) | Browser-local model parity and accessibility review | Static files, no backend |
+| [Live browser explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/) | Browser-local model parity and accessibility review | GitHub Pages, static files, no backend |
 
 ## Recruiter Read
 
@@ -59,7 +59,7 @@ Read the short written case study at [`reports/bank_marketing_case_study.md`](re
 
 [`notebooks/palmer_penguins_end_to_end.ipynb`](notebooks/palmer_penguins_end_to_end.ipynb) is the compact end-to-end workflow. It loads a pinned public Palmer Penguins CSV, verifies schema and checksum, keeps preprocessing inside pipelines, compares models, evaluates a holdout set, reviews errors, and explains feature contributions carefully.
 
-The companion demos are educational. The [hosted Streamlit app](https://ml-notebooks-portfolio-public.streamlit.app/) accepts plausible penguin morphology and collection-context inputs, predicts model probabilities, shows where the input sits relative to training data, and states the model boundary. The [browser-native explorer source](site/index.html) reproduces a versioned logistic model locally with no backend. Both surfaces expose model-internal contributions without presenting them as biological causes. The dated hosted-demo check is recorded in [`demo/README.md`](demo/README.md); the static explorer is currently a checked-in source artifact rather than a claimed live Pages deployment.
+The companion demos are educational. The [hosted Streamlit app](https://ml-notebooks-portfolio-public.streamlit.app/) accepts plausible penguin morphology and collection-context inputs, predicts model probabilities, shows where the input sits relative to training data, and states the model boundary. The [live browser-native explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/) reproduces a versioned logistic model locally with no backend; its [source implementation](site/index.html) is available for inspection. Both surfaces expose model-internal contributions without presenting them as biological causes. The dated hosted-demo check is recorded in [`demo/README.md`](demo/README.md).
 
 ```bash
 python3.12 -m venv .venv
@@ -168,7 +168,7 @@ jupyter nbconvert \
 - Bank Marketing is an analysis case study, not a customer-targeting product.
 - Penguins is an educational demo, not a wildlife field tool or production service.
 - The hosted Streamlit demo is available at [ml-notebooks-portfolio-public.streamlit.app](https://ml-notebooks-portfolio-public.streamlit.app/); its dated public-commit check is recorded in [`demo/README.md`](demo/README.md).
-- The browser explorer is a checked-in, browser-local artifact. The repository includes a Pages workflow, but no live Pages URL is claimed yet.
+- The [browser explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/) is deployed on GitHub Pages as a browser-local artifact. Its [checked-in source](site/index.html) and parity tests remain available for review.
 - No business impact, contact economics, production deployment status, or external usage is claimed.
 
 ## License

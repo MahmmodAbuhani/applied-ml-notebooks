@@ -222,21 +222,33 @@ class PublicProseContractTests(unittest.TestCase):
     def test_public_surfaces_share_the_current_hosting_boundary(self) -> None:
         app_text = (ROOT / "demo" / "penguin_streamlit_app.py").read_text(encoding="utf-8")
         demo_readme = (ROOT / "demo" / "README.md").read_text(encoding="utf-8")
+        reproduction = (ROOT / "docs" / "REPRODUCING.md").read_text(encoding="utf-8")
         model_card = (ROOT / "reports" / "palmer_penguins_model_card.md").read_text(
             encoding="utf-8"
         )
         root_readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        public_docs = (root_readme, demo_readme, reproduction, model_card)
+        pages_url = "https://mahmmodabuhani.github.io/applied-ml-notebooks/"
+        current_streamlit_sha = "94de46d03def0ffa60386d2d3e4d3b14e310335a"
 
         self.assertIn("Hosted on Streamlit Community Cloud", app_text)
         self.assertNotIn("the checked-in app runs locally", app_text)
         self.assertNotIn("A public URL is only claimed", app_text)
-        self.assertIn("09cc8d26d365560915b423cd98f1abf5158f1b53", demo_readme)
+        self.assertIn(current_streamlit_sha, demo_readme)
+        self.assertNotIn("09cc8d26d365560915b423cd98f1abf5158f1b53", demo_readme)
         self.assertIn("2026-08-19", demo_readme)
         self.assertIn("demo/README.md", model_card)
         self.assertNotIn("The hosted Streamlit demo is verified at", model_card)
         self.assertIn("Average Precision (AP)", root_readme)
         self.assertIn("versioned Bank execution snapshot", root_readme)
         self.assertNotIn("externally linked Bank execution snapshot", root_readme)
+        for document in public_docs:
+            with self.subTest(document=document[:40]):
+                self.assertIn(pages_url, document)
+                lowered = document.lower()
+                self.assertNotIn("no live pages url is claimed", lowered)
+                self.assertNotIn("currently a checked-in static artifact", lowered)
+                self.assertNotIn("pages workflow is prepared", lowered)
 
     def test_demo_surfaces_offer_reviewer_navigation(self) -> None:
         app_text = (ROOT / "demo" / "penguin_streamlit_app.py").read_text(encoding="utf-8")

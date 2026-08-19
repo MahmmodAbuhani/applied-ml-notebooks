@@ -8,8 +8,8 @@ The demo is intentionally modest. It is not a wildlife field tool or a productio
 
 - [Repository](https://github.com/MahmmodAbuhani/applied-ml-notebooks): source, tests, model cards, and provenance.
 - [Hosted Streamlit demo](https://ml-notebooks-portfolio-public.streamlit.app/): interactive training-context view with probabilities and model-internal contributions.
-- [Browser explorer source](../site/index.html): static, browser-local inference with a versioned model artifact and Python parity fixtures.
-- The browser explorer is currently a checked-in source artifact. Its GitHub Pages workflow is prepared but no live Pages URL is claimed.
+- [Live browser explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/): static, browser-local inference with a versioned model artifact and Python parity fixtures.
+- [Browser explorer source](../site/index.html): checked-in implementation for the live Pages artifact.
 
 ## Streamlit App
 
@@ -54,7 +54,7 @@ The CLI uses the same reusable modeling helpers as the Streamlit app.
 
 ## Hosted Demo Boundary
 
-The hosted Streamlit URL was checked in a signed-out browser on `2026-08-19` at public commit `09cc8d26d365560915b423cd98f1abf5158f1b53`. After the normal Streamlit wake-up screen, it reached the root entrypoint running Python 3.12. Availability can change if the app sleeps or is redeployed. The browser explorer is a separate static artifact: it does not run the Python app or provide a backend.
+The hosted Streamlit URL was checked in a signed-out browser on `2026-08-19` at public commit `94de46d03def0ffa60386d2d3e4d3b14e310335a`. After the normal Streamlit wake-up screen, it reached the root entrypoint running Python 3.12. Availability can change if the app sleeps or is redeployed. The [browser explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/) is a separate static deployment: it does not run the Python app or provide a backend.
 
 ## Reproducibility Boundary
 
