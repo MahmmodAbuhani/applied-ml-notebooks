@@ -6,8 +6,10 @@ The demo is intentionally modest. It is not a wildlife field tool or a productio
 
 ## Public Demo
 
+- [Repository](https://github.com/MahmmodAbuhani/applied-ml-notebooks): source, tests, model cards, and provenance.
 - [Hosted Streamlit demo](https://ml-notebooks-portfolio-public.streamlit.app/): interactive training-context view with probabilities and model-internal contributions.
 - [Browser explorer source](../site/index.html): static, browser-local inference with a versioned model artifact and Python parity fixtures.
+- The browser explorer is currently a checked-in source artifact. Its GitHub Pages workflow is prepared but no live Pages URL is claimed.
 
 ## Streamlit App
 
@@ -52,7 +54,7 @@ The CLI uses the same reusable modeling helpers as the Streamlit app.
 
 ## Hosted Demo Boundary
 
-The hosted Streamlit URL is verified from a signed-out browser at the reviewed public commit. It runs the root entrypoint with Python 3.12. The browser explorer is a separate static artifact: GitHub Pages can host it, but it does not run the Python app or provide a backend.
+The hosted Streamlit URL was checked in a signed-out browser on `2026-08-19` at public commit `09cc8d26d365560915b423cd98f1abf5158f1b53`. After the normal Streamlit wake-up screen, it reached the root entrypoint running Python 3.12. Availability can change if the app sleeps or is redeployed. The browser explorer is a separate static artifact: it does not run the Python app or provide a backend.
 
 ## Reproducibility Boundary
 

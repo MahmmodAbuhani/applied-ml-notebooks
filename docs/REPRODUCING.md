@@ -28,11 +28,13 @@ pre-commit run --all-files
 git diff --check
 ```
 
-The hosted Streamlit companion is available at [ml-notebooks-portfolio-public.streamlit.app](https://ml-notebooks-portfolio-public.streamlit.app/). To inspect the browser-native explorer locally, serve the static artifact:
+The hosted Streamlit companion is available at [ml-notebooks-portfolio-public.streamlit.app](https://ml-notebooks-portfolio-public.streamlit.app/); the dated public-commit check is recorded in [`demo/README.md`](../demo/README.md). To inspect the browser-native explorer locally, serve the static artifact:
 
 ```bash
 python3 -m http.server 8000 --directory site
 ```
+
+The browser explorer is currently a checked-in static artifact. The repository includes a GitHub Pages workflow, but no live Pages URL is claimed until that deployment is run and verified.
 
 The browser parity tests compare the exported JavaScript model with Python reference fixtures across representative inputs and observed-range boundaries.
 
