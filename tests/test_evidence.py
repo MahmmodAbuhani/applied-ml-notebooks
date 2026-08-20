@@ -4,9 +4,12 @@ import hashlib
 import json
 import base64
 import inspect
+import re
 from pathlib import Path
 import tempfile
 import unittest
+
+import nbformat
 
 from ml_portfolio import evidence
 from ml_portfolio.evidence import (
@@ -15,9 +18,26 @@ from ml_portfolio.evidence import (
     sha256_file,
     verify_bank_evidence_manifest,
 )
+from scripts.build_bank_evidence import _export_static_html
 
 
 class EvidenceTests(unittest.TestCase):
+    def test_static_html_exporter_has_no_external_runtime_code(self) -> None:
+        notebook = nbformat.v4.new_notebook(
+            cells=[nbformat.v4.new_markdown_cell("Static evidence")]
+        )
+        html = _export_static_html(notebook)
+        external_runtime_references = re.findall(
+            r'<script\b[^>]*\bsrc=["\']https?://[^"\']+'
+            r'|\bimport\(\s*["\']https?://[^"\']+',
+            html,
+            flags=re.IGNORECASE,
+        )
+
+        self.assertEqual(external_runtime_references, [])
+        head = html.partition("</head>")[0]
+        self.assertNotIn("<script", head.lower())
+
     def test_externalize_embedded_images_removes_data_uris_and_generic_alt_text(self) -> None:
         helper = getattr(evidence, "externalize_embedded_images", None)
         self.assertIsNotNone(helper, "evidence image externalizer is missing")

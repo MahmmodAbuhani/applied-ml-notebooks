@@ -10,7 +10,7 @@ This is not production ML infrastructure, deep-learning research, or a deployed 
 
 ## 90-Second Review
 
-1. Start with the [Bank Marketing case study](reports/bank_marketing_case_study.md) and [model card](reports/bank_marketing_response_model_card.md).
+1. Start with the [rendered Bank Marketing report](https://mahmmodabuhani.github.io/applied-ml-notebooks/reports/evidence/bank_marketing_executed.html), then review the [case study](reports/bank_marketing_case_study.md) and [model card](reports/bank_marketing_response_model_card.md).
 2. Try the [hosted Penguins demo](https://ml-notebooks-portfolio-public.streamlit.app/) or open the [live browser explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/). You can also inspect the [explorer source](site/index.html).
 3. Check the [reproduction guide](docs/REPRODUCING.md) and [verification tests](tests/).
 4. Review [data sources and rights](docs/DATA_SOURCES.md), then finish with the scope and limitations below.
@@ -19,7 +19,7 @@ The three review surfaces have different jobs:
 
 | Surface | Best for | Runtime |
 | --- | --- | --- |
-| [Bank case study](reports/bank_marketing_case_study.md) | Applied question, leakage boundary, and validation result | Notebook and versioned report |
+| [Rendered Bank report](https://mahmmodabuhani.github.io/applied-ml-notebooks/reports/evidence/bank_marketing_executed.html) | Notebook code, outputs, figures, and provenance | GitHub Pages, static historical snapshot |
 | [Hosted Streamlit demo](https://ml-notebooks-portfolio-public.streamlit.app/) | Interactive Penguins inputs, model probabilities, and contributions | Streamlit Community Cloud |
 | [Live browser explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/) | Browser-local model parity and accessibility review | GitHub Pages, static files, no backend |
 
@@ -28,7 +28,7 @@ The three review surfaces have different jobs:
 - **Flagship:** Bank Marketing response modeling with a leakage-aware, source-order validation design.
 - **Interactive companion:** [hosted Palmer Penguins Streamlit demo](https://ml-notebooks-portfolio-public.streamlit.app/) plus a browser-native static explorer with transparent inputs, probabilities, training context, and model-internal contributions.
 - **Foundations:** five compact notebooks covering classification, regression, clustering, and model interpretation.
-- **Review evidence:** unit tests, CI, stripped source notebooks, reusable helper modules, model cards, cross-runtime browser parity fixtures, a versioned Bank execution snapshot, and temporary all-notebook workflow artifacts.
+- **Review evidence:** unit tests, CI, stripped source notebooks, reusable helper modules, model cards, cross-runtime browser parity fixtures, a Pages-hosted versioned Bank execution snapshot, and temporary all-notebook workflow artifacts.
 
 ## Flagship: Bank Marketing
 
@@ -53,7 +53,7 @@ The table uses Average Precision (AP), which summarizes precision across recall 
 
 ![Line chart showing an exploratory top-1% late-period Bank Marketing concentration that does not persist at wider contact budgets.](assets/figures/bank_marketing_contact_budget_curve.png)
 
-Read the short written case study at [`reports/bank_marketing_case_study.md`](reports/bank_marketing_case_study.md) and the model card at [`reports/bank_marketing_response_model_card.md`](reports/bank_marketing_response_model_card.md). For executed output, download or open the versioned [`Bank HTML snapshot`](reports/evidence/bank_marketing_executed.html) locally and inspect its [`provenance manifest`](reports/evidence/bank_marketing_provenance.json). The snapshot records its source commit, source-notebook hash, pinned UCI input checksum, environment, HTML hash, and external figure hashes. It is historical review evidence, not a live report.
+Read the short written case study at [`reports/bank_marketing_case_study.md`](reports/bank_marketing_case_study.md) and the model card at [`reports/bank_marketing_response_model_card.md`](reports/bank_marketing_response_model_card.md). For executed output, open the [rendered Bank report](https://mahmmodabuhani.github.io/applied-ml-notebooks/reports/evidence/bank_marketing_executed.html), then inspect the versioned [`HTML source snapshot`](reports/evidence/bank_marketing_executed.html) and [`provenance manifest`](reports/evidence/bank_marketing_provenance.json). The snapshot records its source commit, source-notebook hash, pinned UCI input checksum, environment, HTML hash, and external figure hashes. Pages makes this historical review evidence browser-accessible; it does not turn the snapshot into a live model or current analytical result.
 
 ## Interactive Companion: Penguins
 

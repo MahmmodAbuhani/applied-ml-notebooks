@@ -9,6 +9,7 @@ import json
 import os
 from pathlib import Path
 import platform
+import re
 import subprocess
 import tempfile
 
@@ -31,6 +32,7 @@ NOTEBOOK_PATH = Path("notebooks/bank_marketing_response_model.ipynb")
 DEFAULT_OUTPUT_DIR = Path("reports/evidence")
 HTML_NAME = "bank_marketing_executed.html"
 MANIFEST_NAME = "bank_marketing_provenance.json"
+HEAD_SCRIPT_RE = re.compile(r"<script\b[^>]*>.*?</script>", re.IGNORECASE | re.DOTALL)
 
 
 def _git(*args: str) -> str:
@@ -92,6 +94,30 @@ This static HTML was executed from source commit `{source_commit}`.
     return cell
 
 
+def _static_html_exporter() -> HTMLExporter:
+    exporter = HTMLExporter(template_name="lab")
+    exporter.exclude_input = False
+    exporter.jquery_url = ""
+    exporter.jupyter_widgets_base_url = ""
+    exporter.mathjax_url = ""
+    exporter.mermaid_js_url = ""
+    exporter.mermaid_layout_elk_js_url = ""
+    exporter.require_js_url = ""
+    exporter.widget_renderer_url = ""
+    return exporter
+
+
+def _export_static_html(notebook: nbformat.NotebookNode) -> str:
+    body, _ = _static_html_exporter().from_notebook_node(
+        notebook,
+        resources={"metadata": {"name": "Bank Marketing Executed Evidence"}},
+    )
+    head, closing_head, document_body = body.partition("</head>")
+    if not closing_head:
+        raise ValueError("Exported Bank evidence HTML is missing its closing head tag")
+    return HEAD_SCRIPT_RE.sub("", head) + closing_head + document_body
+
+
 def _execute_notebook(source_commit: str, notebook_sha256: str, temp_dir: Path) -> str:
     notebook = nbformat.read(ROOT / NOTEBOOK_PATH, as_version=4)
     notebook.cells.insert(0, _provenance_cell(source_commit, notebook_sha256))
@@ -124,13 +150,7 @@ def _execute_notebook(source_commit: str, notebook_sha256: str, temp_dir: Path) 
         cell.get("metadata", {}).pop("execution", None)
     notebook.metadata.pop("widgets", None)
 
-    exporter = HTMLExporter(template_name="lab")
-    exporter.exclude_input = False
-    body, _ = exporter.from_notebook_node(
-        notebook,
-        resources={"metadata": {"name": "Bank Marketing Executed Evidence"}},
-    )
-    return body
+    return _export_static_html(notebook)
 
 
 def build(output_dir: Path) -> tuple[Path, Path]:
