@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import shutil
 from pathlib import Path
 
@@ -14,6 +15,7 @@ BANK_MANIFEST_PATH = Path("reports/evidence/bank_marketing_provenance.json")
 BROWSER_PROVENANCE_PATH = Path(
     "reports/evidence/penguins_browser_model_provenance.json"
 )
+COMMIT_SHA_RE = re.compile(r"^[0-9a-f]{40}$")
 
 
 def _repository_path(relative_path: str | Path) -> Path:
@@ -40,6 +42,10 @@ def build_pages_artifact(
     repository_root = ROOT.resolve()
     if output_dir == repository_root or repository_root in output_dir.parents:
         raise ValueError("Pages output must be outside the repository worktree")
+    if output_dir.exists() and (
+        not output_dir.is_dir() or any(output_dir.iterdir())
+    ):
+        raise ValueError("Pages output directory must be empty")
 
     output_dir.mkdir(parents=True, exist_ok=True)
     shutil.copytree(ROOT / "site", output_dir, dirs_exist_ok=True)
@@ -86,10 +92,18 @@ def _boolean(value: str) -> bool:
     return normalized == "true"
 
 
+def _commit_sha(value: str) -> str:
+    if not COMMIT_SHA_RE.fullmatch(value):
+        raise argparse.ArgumentTypeError(
+            "expected a 40-character lowercase commit SHA"
+        )
+    return value
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output-dir", required=True, type=Path)
-    parser.add_argument("--commit", required=True)
+    parser.add_argument("--commit", required=True, type=_commit_sha)
     parser.add_argument("--deploy", required=True, type=_boolean)
     args = parser.parse_args()
 

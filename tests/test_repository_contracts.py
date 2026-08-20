@@ -136,11 +136,32 @@ class WorkflowContractTests(unittest.TestCase):
             "Pages verifies evidence tied to an earlier commit, so checkout must include history.",
         )
 
+        deploy_job = workflow["jobs"]["deploy"]
+        self.assertEqual(deploy_job.get("if"), "${{ inputs.deploy }}")
+        self.assertEqual(
+            deploy_job.get("permissions"),
+            {"pages": "write", "id-token": "write"},
+        )
+
 
 class PagesArtifactContractTests(unittest.TestCase):
+    def test_published_bank_html_has_no_external_runtime_code(self) -> None:
+        report_html = (
+            ROOT / "reports" / "evidence" / "bank_marketing_executed.html"
+        ).read_text(encoding="utf-8")
+        external_runtime_references = re.findall(
+            r'<script\b[^>]*\bsrc=["\']https?://[^"\']+'
+            r'|\bimport\(\s*["\']https?://[^"\']+',
+            report_html,
+            flags=re.IGNORECASE,
+        )
+
+        self.assertEqual(external_runtime_references, [])
+
     def test_pages_artifact_contains_complete_bank_report_bundle_without_notebooks(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_dir = Path(tmp) / "pages"
+            candidate_sha = "0123456789abcdef0123456789abcdef01234567"
             result = subprocess.run(
                 [
                     sys.executable,
@@ -148,7 +169,7 @@ class PagesArtifactContractTests(unittest.TestCase):
                     "--output-dir",
                     str(output_dir),
                     "--commit",
-                    "0123456789abcdef",
+                    candidate_sha,
                     "--deploy",
                     "false",
                 ],
@@ -199,7 +220,7 @@ class PagesArtifactContractTests(unittest.TestCase):
                 (output_dir / "build-provenance.json").read_text(encoding="utf-8")
             )
             self.assertEqual(provenance["artifact_id"], "applied-ml-notebooks-pages")
-            self.assertEqual(provenance["commit"], "0123456789abcdef")
+            self.assertEqual(provenance["commit"], candidate_sha)
             self.assertFalse(provenance["deploy"])
             self.assertEqual(
                 provenance["bank_marketing_report"],
@@ -225,6 +246,58 @@ class PagesArtifactContractTests(unittest.TestCase):
             result.stdout.strip(),
             "reports/evidence/bank_marketing_executed.html: linguist-generated: true",
         )
+
+    def test_pages_builder_rejects_a_nonempty_output_directory(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_dir = Path(tmp) / "pages"
+            output_dir.mkdir()
+            stale_file = output_dir / "stale.txt"
+            stale_file.write_text("must not ship\n", encoding="utf-8")
+
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    "scripts/build_pages_artifact.py",
+                    "--output-dir",
+                    str(output_dir),
+                    "--commit",
+                    "0123456789abcdef0123456789abcdef01234567",
+                    "--deploy",
+                    "false",
+                ],
+                cwd=ROOT,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("Pages output directory must be empty", result.stderr)
+            self.assertEqual(stale_file.read_text(encoding="utf-8"), "must not ship\n")
+
+    def test_pages_builder_requires_a_full_commit_sha(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_dir = Path(tmp) / "pages"
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    "scripts/build_pages_artifact.py",
+                    "--output-dir",
+                    str(output_dir),
+                    "--commit",
+                    "local-review",
+                    "--deploy",
+                    "false",
+                ],
+                cwd=ROOT,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("40-character lowercase commit SHA", result.stderr)
+            self.assertFalse(output_dir.exists())
 
 
 class DependencyContractTests(unittest.TestCase):

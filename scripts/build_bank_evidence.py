@@ -92,6 +92,19 @@ This static HTML was executed from source commit `{source_commit}`.
     return cell
 
 
+def _static_html_exporter() -> HTMLExporter:
+    exporter = HTMLExporter(template_name="lab")
+    exporter.exclude_input = False
+    exporter.jquery_url = ""
+    exporter.jupyter_widgets_base_url = ""
+    exporter.mathjax_url = ""
+    exporter.mermaid_js_url = ""
+    exporter.mermaid_layout_elk_js_url = ""
+    exporter.require_js_url = ""
+    exporter.widget_renderer_url = ""
+    return exporter
+
+
 def _execute_notebook(source_commit: str, notebook_sha256: str, temp_dir: Path) -> str:
     notebook = nbformat.read(ROOT / NOTEBOOK_PATH, as_version=4)
     notebook.cells.insert(0, _provenance_cell(source_commit, notebook_sha256))
@@ -124,8 +137,7 @@ def _execute_notebook(source_commit: str, notebook_sha256: str, temp_dir: Path) 
         cell.get("metadata", {}).pop("execution", None)
     notebook.metadata.pop("widgets", None)
 
-    exporter = HTMLExporter(template_name="lab")
-    exporter.exclude_input = False
+    exporter = _static_html_exporter()
     body, _ = exporter.from_notebook_node(
         notebook,
         resources={"metadata": {"name": "Bank Marketing Executed Evidence"}},

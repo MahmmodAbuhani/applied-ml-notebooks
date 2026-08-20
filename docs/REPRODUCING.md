@@ -33,7 +33,7 @@ The hosted Streamlit companion is available at [ml-notebooks-portfolio-public.st
 ```bash
 python scripts/build_pages_artifact.py \
   --output-dir /tmp/applied-ml-notebooks-pages \
-  --commit local-review \
+  --commit "$(git rev-parse HEAD)" \
   --deploy false
 python3 -m http.server 8000 --directory /tmp/applied-ml-notebooks-pages
 ```
