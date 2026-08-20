@@ -6,6 +6,8 @@ This directory contains one versioned execution snapshot of the flagship Bank Ma
 - `assets/figure-01.png` through `assets/figure-05.png`: external figure assets with meaningful alternative text and manifest-bound hashes.
 - `bank_marketing_provenance.json`: the source commit and tree, source-notebook hash, pinned UCI archive identity, environment versions, exact HTML hash, and figure hashes.
 
+Review the same committed snapshot in a browser through the [rendered Bank Marketing report](https://mahmmodabuhani.github.io/applied-ml-notebooks/reports/evidence/bank_marketing_executed.html).
+
 This is a historical execution snapshot for review. It is not a live report, deployed model, or policy recommendation. The Bank result remains a weak late-period ranking result under the stated source-order stress test.
 
 Regenerate from a clean committed source tree with:

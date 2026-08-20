@@ -12,4 +12,4 @@ These short reports summarize the main notebook conclusions for reviewers who wa
 
 These are portfolio model cards, not production governance documents.
 
-The flagship also has a versioned [`executed HTML snapshot`](evidence/bank_marketing_executed.html), external figure assets, and a [`provenance manifest`](evidence/bank_marketing_provenance.json). Download or open the HTML locally. It is a historical execution witness for the attested source commit and pinned public input, not a live report or deployed model.
+The flagship also has a [browser-rendered execution snapshot](https://mahmmodabuhani.github.io/applied-ml-notebooks/reports/evidence/bank_marketing_executed.html) published through Pages. The versioned [`HTML source`](evidence/bank_marketing_executed.html), external figure assets, and [`provenance manifest`](evidence/bank_marketing_provenance.json) remain in the repository for inspection. Pages exposes the same historical witness for the attested source commit and pinned public input; it is not a live model or deployed decision system.

@@ -28,13 +28,17 @@ pre-commit run --all-files
 git diff --check
 ```
 
-The hosted Streamlit companion is available at [ml-notebooks-portfolio-public.streamlit.app](https://ml-notebooks-portfolio-public.streamlit.app/); the dated public-commit check is recorded in [`demo/README.md`](../demo/README.md). The [browser-native explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/) is deployed as static GitHub Pages files with no backend. To inspect the same artifact locally, serve the static files:
+The hosted Streamlit companion is available at [ml-notebooks-portfolio-public.streamlit.app](https://ml-notebooks-portfolio-public.streamlit.app/); the dated public-commit check is recorded in [`demo/README.md`](../demo/README.md). GitHub Pages publishes both the [browser-native explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/) and the [rendered Bank Marketing report](https://mahmmodabuhani.github.io/applied-ml-notebooks/reports/evidence/bank_marketing_executed.html) as static files with no backend. To inspect the same combined artifact locally, build and serve the Pages tree:
 
 ```bash
-python3 -m http.server 8000 --directory site
+python scripts/build_pages_artifact.py \
+  --output-dir /tmp/applied-ml-notebooks-pages \
+  --commit local-review \
+  --deploy false
+python3 -m http.server 8000 --directory /tmp/applied-ml-notebooks-pages
 ```
 
-The browser parity tests compare the exported JavaScript model with Python reference fixtures across representative inputs and observed-range boundaries.
+The browser parity tests compare the exported JavaScript model with Python reference fixtures across representative inputs and observed-range boundaries. The Pages builder copies the verified Bank HTML, manifest, and external figures without publishing source notebooks.
 
 Validate stripped notebooks:
 

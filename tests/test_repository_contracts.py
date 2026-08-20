@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import re
 import json
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -113,6 +115,117 @@ class WorkflowContractTests(unittest.TestCase):
             "CI verifies evidence tied to an earlier commit, so checkout history must include it.",
         )
 
+    def test_pages_build_verifies_and_assembles_published_evidence(self) -> None:
+        workflow = _load_workflow(ROOT / ".github" / "workflows" / "pages.yml")
+        steps = workflow["jobs"]["build"]["steps"]
+        run_commands = "\n".join(step.get("run", "") for step in steps)
+
+        self.assertIn("python scripts/verify_bank_evidence.py", run_commands)
+        self.assertIn("python scripts/build_pages_artifact.py", run_commands)
+        self.assertIn("/tmp/applied-ml-notebooks-pages", run_commands)
+
+        checkout_steps = [
+            step
+            for step in steps
+            if step.get("uses", "").startswith("actions/checkout@")
+        ]
+        self.assertEqual(len(checkout_steps), 1)
+        self.assertEqual(
+            checkout_steps[0].get("with", {}).get("fetch-depth"),
+            "0",
+            "Pages verifies evidence tied to an earlier commit, so checkout must include history.",
+        )
+
+
+class PagesArtifactContractTests(unittest.TestCase):
+    def test_pages_artifact_contains_complete_bank_report_bundle_without_notebooks(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_dir = Path(tmp) / "pages"
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    "scripts/build_pages_artifact.py",
+                    "--output-dir",
+                    str(output_dir),
+                    "--commit",
+                    "0123456789abcdef",
+                    "--deploy",
+                    "false",
+                ],
+                cwd=ROOT,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stderr)
+            expected_paths = (
+                "index.html",
+                "model-provenance.json",
+                "build-provenance.json",
+                "reports/evidence/bank_marketing_executed.html",
+                "reports/evidence/bank_marketing_provenance.json",
+                "reports/evidence/assets/figure-01.png",
+                "reports/evidence/assets/figure-02.png",
+                "reports/evidence/assets/figure-03.png",
+                "reports/evidence/assets/figure-04.png",
+                "reports/evidence/assets/figure-05.png",
+            )
+            for relative_path in expected_paths:
+                with self.subTest(relative_path=relative_path):
+                    self.assertTrue((output_dir / relative_path).is_file())
+
+            report_path = output_dir / "reports/evidence/bank_marketing_executed.html"
+            report_html = report_path.read_text(encoding="utf-8")
+            figure_sources = sorted(
+                set(re.findall(r'src="(assets/figure-[0-9]{2}\.png)"', report_html))
+            )
+            self.assertEqual(
+                figure_sources,
+                [
+                    "assets/figure-01.png",
+                    "assets/figure-02.png",
+                    "assets/figure-03.png",
+                    "assets/figure-04.png",
+                    "assets/figure-05.png",
+                ],
+            )
+            for figure_source in figure_sources:
+                with self.subTest(figure_source=figure_source):
+                    self.assertTrue((report_path.parent / figure_source).is_file())
+
+            self.assertEqual(list(output_dir.rglob("*.ipynb")), [])
+            provenance = json.loads(
+                (output_dir / "build-provenance.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual(provenance["artifact_id"], "applied-ml-notebooks-pages")
+            self.assertEqual(provenance["commit"], "0123456789abcdef")
+            self.assertFalse(provenance["deploy"])
+            self.assertEqual(
+                provenance["bank_marketing_report"],
+                "reports/evidence/bank_marketing_executed.html",
+            )
+
+    def test_generated_evidence_html_is_classified_as_generated(self) -> None:
+        result = subprocess.run(
+            [
+                "git",
+                "check-attr",
+                "linguist-generated",
+                "--",
+                "reports/evidence/bank_marketing_executed.html",
+            ],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+
+        self.assertEqual(
+            result.stdout.strip(),
+            "reports/evidence/bank_marketing_executed.html: linguist-generated: true",
+        )
+
 
 class DependencyContractTests(unittest.TestCase):
     def test_test_and_lint_dependencies_are_declared_directly(self) -> None:
@@ -218,6 +331,22 @@ class PublicProseContractTests(unittest.TestCase):
                 if phrase.lower() in lowered:
                     failures.append(f"{path}: {phrase}")
         self.assertEqual(failures, [])
+
+    def test_public_indexes_route_reviewers_to_the_rendered_bank_report(self) -> None:
+        rendered_report_url = (
+            "https://mahmmodabuhani.github.io/applied-ml-notebooks/"
+            "reports/evidence/bank_marketing_executed.html"
+        )
+        index_paths = (
+            ROOT / "README.md",
+            ROOT / "reports" / "README.md",
+            ROOT / "reports" / "evidence" / "README.md",
+            ROOT / "docs" / "REPRODUCING.md",
+        )
+
+        for path in index_paths:
+            with self.subTest(path=path.relative_to(ROOT).as_posix()):
+                self.assertIn(rendered_report_url, path.read_text(encoding="utf-8"))
 
     def test_public_surfaces_share_the_current_hosting_boundary(self) -> None:
         app_text = (ROOT / "demo" / "penguin_streamlit_app.py").read_text(encoding="utf-8")

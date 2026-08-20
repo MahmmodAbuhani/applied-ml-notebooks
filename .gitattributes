@@ -1,6 +1,7 @@
 * text=auto eol=lf
 
 *.ipynb text eol=lf
+reports/evidence/*.html linguist-generated=true
 *.md text eol=lf
 *.txt text eol=lf
 *.yml text eol=lf

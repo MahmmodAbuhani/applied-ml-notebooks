@@ -1,4 +1,4 @@
-name: Static Explorer Preview And Pages
+name: Static Portfolio Pages
 
 on:
   workflow_dispatch:
@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
@@ -43,50 +45,31 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt -c constraints-py312.txt
 
-      - name: Verify browser model artifact
+      - name: Verify published evidence
         run: |
           node --test tests/browser/model-parity.test.mjs tests/browser/reflow-contract.test.mjs
           python scripts/verify_penguins_browser_model.py --offline
+          python scripts/verify_bank_evidence.py
 
       - name: Assemble Pages artifact with provenance
         run: |
-          mkdir -p /tmp/penguin-model-explorer-pages
-          cp -R site/. /tmp/penguin-model-explorer-pages/
-          cp reports/evidence/penguins_browser_model_provenance.json \
-            /tmp/penguin-model-explorer-pages/model-provenance.json
-          DEPLOY_INPUT="${{ inputs.deploy }}" GITHUB_SHA="$GITHUB_SHA" python - <<'PY'
-          import json
-          import os
-          from pathlib import Path
-
-          Path("/tmp/penguin-model-explorer-pages/build-provenance.json").write_text(
-              json.dumps(
-                  {
-                      "schema_version": 1,
-                      "artifact_id": "penguin-model-explorer",
-                      "commit": os.environ["GITHUB_SHA"],
-                      "deploy": os.environ["DEPLOY_INPUT"].lower() == "true",
-                      "model_provenance": "model-provenance.json",
-                  },
-                  indent=2,
-              )
-              + "\n",
-              encoding="utf-8",
-          )
-          PY
+          python scripts/build_pages_artifact.py \
+            --output-dir /tmp/applied-ml-notebooks-pages \
+            --commit "$GITHUB_SHA" \
+            --deploy "${{ inputs.deploy }}"
 
       - name: Upload downloadable static artifact
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: penguin-model-explorer
-          path: /tmp/penguin-model-explorer-pages
+          name: applied-ml-notebooks-pages
+          path: /tmp/applied-ml-notebooks-pages
           if-no-files-found: error
           retention-days: 14
 
       - name: Package Pages artifact
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:
-          path: /tmp/penguin-model-explorer-pages
+          path: /tmp/applied-ml-notebooks-pages
 
   deploy:
     if: ${{ inputs.deploy }}
