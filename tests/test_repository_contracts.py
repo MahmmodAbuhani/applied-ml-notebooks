@@ -227,6 +227,12 @@ class PagesArtifactContractTests(unittest.TestCase):
                 "reports/evidence/bank_marketing_executed.html",
             )
 
+            explorer_html = (output_dir / "index.html").read_text(encoding="utf-8")
+            self.assertIn(
+                'href="./reports/evidence/bank_marketing_executed.html"',
+                explorer_html,
+            )
+
     def test_generated_evidence_html_is_classified_as_generated(self) -> None:
         result = subprocess.run(
             [
@@ -420,6 +426,32 @@ class PublicProseContractTests(unittest.TestCase):
         for path in index_paths:
             with self.subTest(path=path.relative_to(ROOT).as_posix()):
                 self.assertIn(rendered_report_url, path.read_text(encoding="utf-8"))
+
+    def test_recruiter_path_makes_pages_primary_and_streamlit_secondary(self) -> None:
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        demo_readme = (ROOT / "demo" / "README.md").read_text(encoding="utf-8")
+        reproduction = (ROOT / "docs" / "REPRODUCING.md").read_text(encoding="utf-8")
+
+        self.assertIn("GitHub Pages is the canonical no-account review path", readme)
+        self.assertLess(
+            readme.index("rendered Bank Marketing report"),
+            readme.index("live browser explorer"),
+        )
+        self.assertLess(
+            readme.index("live browser explorer"),
+            readme.index("hosted Streamlit demo"),
+        )
+        for document in (readme, demo_readme, reproduction):
+            with self.subTest(document=document[:40]):
+                self.assertIn("availability-dependent", document.lower())
+                self.assertIn("sleep", document.lower())
+
+    def test_static_explorer_links_to_the_pages_bank_report(self) -> None:
+        static_explorer = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
+        self.assertIn(
+            'href="./reports/evidence/bank_marketing_executed.html"',
+            static_explorer,
+        )
 
     def test_public_surfaces_share_the_current_hosting_boundary(self) -> None:
         app_text = (ROOT / "demo" / "penguin_streamlit_app.py").read_text(encoding="utf-8")

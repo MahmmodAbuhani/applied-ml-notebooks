@@ -46,6 +46,6 @@ The feature-ablation section compares the full feature set with morphology-only 
 - The dataset is small and curated for teaching.
 - The model is not intended for biological field deployment.
 - The demo fits a model from the public CSV at runtime and does not represent a production service.
-- The [hosted Streamlit demo](https://ml-notebooks-portfolio-public.streamlit.app/) is documented with a dated public-commit check in [`demo/README.md`](../demo/README.md). It remains an educational interface, not a production service or field tool. The [browser-native explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/) runs the exported model in the browser without a backend; its [source implementation](../site/index.html) is checked in for review.
+- The [browser-native explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/) is the canonical no-account route and runs the exported model in the browser without a backend; its [source implementation](../site/index.html) is checked in for review. The [hosted Streamlit demo](https://ml-notebooks-portfolio-public.streamlit.app/) is a secondary, availability-dependent educational interface; it may sleep or be unavailable, and its dated public checks are recorded in [`demo/README.md`](../demo/README.md). Neither surface is a production service or field tool.
 - The public CSV is loaded from GitHub at runtime, so execution depends on network availability.
 - Island and year are useful for this dataset, but they should be treated cautiously outside the original Palmer Archipelago sampling context.

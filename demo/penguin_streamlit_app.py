@@ -269,8 +269,9 @@ def main() -> None:
 
     st.title("Penguin Species Demo")
     st.caption(
-        "Educational public-data demo. Hosted on Streamlit Community Cloud; "
-        "not a production decision system."
+        "Educational public-data demo. Hosted on Streamlit Community Cloud as a "
+        "secondary companion; it may sleep or be unavailable. The canonical no-account "
+        "route is the GitHub Pages browser explorer. Not a production decision system."
     )
 
     data = cached_penguin_data()
@@ -390,8 +391,9 @@ def main() -> None:
         - Training: the model is fit from public data when the app starts.
         - App code: this repository does not persist inputs, write them to a
           database, or send them to a model API.
-        - Hosting: this public app runs on Streamlit Community Cloud. It may wake on
-          demand and remains an educational interface, not a production service.
+        - Hosting: this secondary public app runs on Streamlit Community Cloud. It may
+          sleep, wake on demand, or be unavailable; the canonical no-account route is
+          the [GitHub Pages explorer]({STATIC_EXPLORER_URL}).
         - Scope: educational classifier demo, not a
           wildlife field tool or production service.
         - Review path: read the [Penguins notebook]({NOTEBOOK_URL}) for

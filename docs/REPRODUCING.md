@@ -28,7 +28,7 @@ pre-commit run --all-files
 git diff --check
 ```
 
-The hosted Streamlit companion is available at [ml-notebooks-portfolio-public.streamlit.app](https://ml-notebooks-portfolio-public.streamlit.app/); the dated public-commit check is recorded in [`demo/README.md`](../demo/README.md). GitHub Pages publishes both the [browser-native explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/) and the [rendered Bank Marketing report](https://mahmmodabuhani.github.io/applied-ml-notebooks/reports/evidence/bank_marketing_executed.html) as static files with no backend. To inspect the same combined artifact locally, build and serve the Pages tree:
+GitHub Pages is the canonical no-account route. It publishes both the [browser-native explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/) and the [rendered Bank Marketing report](https://mahmmodabuhani.github.io/applied-ml-notebooks/reports/evidence/bank_marketing_executed.html) as static files with no backend. The [hosted Streamlit companion](https://ml-notebooks-portfolio-public.streamlit.app/) is secondary and availability-dependent: it may sleep, show a wake-up or hosting prompt, or be unavailable. The dated checks are recorded in [`demo/README.md`](../demo/README.md). To inspect the same combined artifact locally, build and serve the Pages tree:
 
 ```bash
 python scripts/build_pages_artifact.py \
