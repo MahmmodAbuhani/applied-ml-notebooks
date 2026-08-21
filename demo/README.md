@@ -1,15 +1,21 @@
 # Demo: Palmer Penguins Species Classifier
 
-This folder contains the Palmer Penguins species-classification demos. It includes the hosted Streamlit app, a browser-native static explorer, and a CLI path that share the same documented model boundary.
+This folder contains the Palmer Penguins species-classification demos. It includes a
+GitHub Pages browser-native static explorer, a secondary hosted Streamlit app, and a CLI
+path that share the same documented model boundary.
 
 The demo is intentionally modest. It is not a wildlife field tool or a production decision system. It gives a reviewer a concrete way to inspect the inference flow: inputs, predicted species, class probabilities, the training-data geometry, simple model-internal feature contributions, and the public-data boundary.
 
-## Public Demo
+## Public Review Path
 
 - [Repository](https://github.com/MahmmodAbuhani/applied-ml-notebooks): source, tests, model cards, and provenance.
-- [Hosted Streamlit demo](https://ml-notebooks-portfolio-public.streamlit.app/): interactive training-context view with probabilities and model-internal contributions.
-- [Live browser explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/): static, browser-local inference with a versioned model artifact and Python parity fixtures.
+- [Rendered Bank Marketing report](https://mahmmodabuhani.github.io/applied-ml-notebooks/reports/evidence/bank_marketing_executed.html): canonical Pages evidence snapshot for the flagship notebook.
+- [Live browser explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/): canonical no-account static, browser-local inference with a versioned model artifact and Python parity fixtures.
+- [Secondary hosted Streamlit demo](https://ml-notebooks-portfolio-public.streamlit.app/): interactive training-context view with probabilities and model-internal contributions when the host is awake.
 - [Browser explorer source](../site/index.html): checked-in implementation for the live Pages artifact.
+
+GitHub Pages is the canonical public route. It does not require an account, run a
+backend, or depend on Streamlit availability.
 
 ## Streamlit App
 
@@ -54,7 +60,7 @@ The CLI uses the same reusable modeling helpers as the Streamlit app.
 
 ## Hosted Demo Boundary
 
-The hosted Streamlit URL was checked in a signed-out browser on `2026-08-19` at public commit `94de46d03def0ffa60386d2d3e4d3b14e310335a`. After the normal Streamlit wake-up screen, it reached the root entrypoint running Python 3.12. Availability can change if the app sleeps or is redeployed. The [browser explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/) is a separate static deployment: it does not run the Python app or provide a backend.
+The hosted Streamlit URL was checked in a signed-out browser on `2026-08-19` at public commit `94de46d03def0ffa60386d2d3e4d3b14e310335a`. After the normal Streamlit sleep/wake-up screen, it reached the root entrypoint running Python 3.12. A later signed-out HTTP check on `2026-08-21` reached a Streamlit authentication redirect rather than stable app content. The hosted demo is therefore availability-dependent: it may sleep, wake slowly, require a hosting prompt, or be unavailable after redeployment. It is secondary proof only. The [browser explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/) and [rendered Bank report](https://mahmmodabuhani.github.io/applied-ml-notebooks/reports/evidence/bank_marketing_executed.html) are separate static Pages artifacts and remain the canonical public route.
 
 ## Reproducibility Boundary
 

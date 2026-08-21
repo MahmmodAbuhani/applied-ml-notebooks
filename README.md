@@ -8,25 +8,30 @@ I built this portfolio to show how I approach small classical machine-learning q
 
 This is not production ML infrastructure, deep-learning research, or a deployed decision system. The repo is built to show applied ML reasoning in notebooks without hiding validation risk.
 
+GitHub Pages is the canonical no-account review path. It publishes the rendered Bank
+Marketing evidence report and the browser-native Penguins explorer as static files. The
+hosted Streamlit app is a secondary companion: it may be asleep, waking, unavailable, or
+behind a hosting prompt, so the portfolio does not depend on it for proof.
+
 ## 90-Second Review
 
 1. Start with the [rendered Bank Marketing report](https://mahmmodabuhani.github.io/applied-ml-notebooks/reports/evidence/bank_marketing_executed.html), then review the [case study](reports/bank_marketing_case_study.md) and [model card](reports/bank_marketing_response_model_card.md).
-2. Try the [hosted Penguins demo](https://ml-notebooks-portfolio-public.streamlit.app/) or open the [live browser explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/). You can also inspect the [explorer source](site/index.html).
-3. Check the [reproduction guide](docs/REPRODUCING.md) and [verification tests](tests/).
-4. Review [data sources and rights](docs/DATA_SOURCES.md), then finish with the scope and limitations below.
+2. Open the [live browser explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/) for the no-account interactive companion and inspect its [source](site/index.html).
+3. Optionally try the [secondary hosted Streamlit demo](https://ml-notebooks-portfolio-public.streamlit.app/). It can sleep or be unavailable; use the Pages explorer when it does not load.
+4. Check the [methods and reproduction guide](docs/REPRODUCING.md), [verification tests](tests/), and [data sources and rights](docs/DATA_SOURCES.md).
 
 The three review surfaces have different jobs:
 
 | Surface | Best for | Runtime |
 | --- | --- | --- |
 | [Rendered Bank report](https://mahmmodabuhani.github.io/applied-ml-notebooks/reports/evidence/bank_marketing_executed.html) | Notebook code, outputs, figures, and provenance | GitHub Pages, static historical snapshot |
-| [Hosted Streamlit demo](https://ml-notebooks-portfolio-public.streamlit.app/) | Interactive Penguins inputs, model probabilities, and contributions | Streamlit Community Cloud |
 | [Live browser explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/) | Browser-local model parity and accessibility review | GitHub Pages, static files, no backend |
+| [Secondary hosted Streamlit demo](https://ml-notebooks-portfolio-public.streamlit.app/) | Interactive Penguins inputs, model probabilities, and contributions when awake | Streamlit Community Cloud, availability-dependent |
 
 ## Recruiter Read
 
 - **Flagship:** Bank Marketing response modeling with a leakage-aware, source-order validation design.
-- **Interactive companion:** [hosted Palmer Penguins Streamlit demo](https://ml-notebooks-portfolio-public.streamlit.app/) plus a browser-native static explorer with transparent inputs, probabilities, training context, and model-internal contributions.
+- **Interactive companion:** the [browser-native static explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/) is the primary no-account path; the [hosted Palmer Penguins Streamlit demo](https://ml-notebooks-portfolio-public.streamlit.app/) is a secondary, availability-dependent companion with transparent inputs, probabilities, training context, and model-internal contributions.
 - **Foundations:** five compact notebooks covering classification, regression, clustering, and model interpretation.
 - **Review evidence:** unit tests, CI, stripped source notebooks, reusable helper modules, model cards, cross-runtime browser parity fixtures, a Pages-hosted versioned Bank execution snapshot, and temporary all-notebook workflow artifacts.
 
@@ -59,7 +64,7 @@ Read the short written case study at [`reports/bank_marketing_case_study.md`](re
 
 [`notebooks/palmer_penguins_end_to_end.ipynb`](notebooks/palmer_penguins_end_to_end.ipynb) is the compact end-to-end workflow. It loads a pinned public Palmer Penguins CSV, verifies schema and checksum, keeps preprocessing inside pipelines, compares models, evaluates a holdout set, reviews errors, and explains feature contributions carefully.
 
-The companion demos are educational. The [hosted Streamlit app](https://ml-notebooks-portfolio-public.streamlit.app/) accepts plausible penguin morphology and collection-context inputs, predicts model probabilities, shows where the input sits relative to training data, and states the model boundary. The [live browser-native explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/) reproduces a versioned logistic model locally with no backend; its [source implementation](site/index.html) is available for inspection. Both surfaces expose model-internal contributions without presenting them as biological causes. The dated hosted-demo check is recorded in [`demo/README.md`](demo/README.md).
+The companion demos are educational. Start with the [live browser-native explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/), which reproduces a versioned logistic model locally with no backend; its [source implementation](site/index.html) is available for inspection. The [secondary hosted Streamlit app](https://ml-notebooks-portfolio-public.streamlit.app/) accepts plausible penguin morphology and collection-context inputs when the host is awake, predicts model probabilities, shows where the input sits relative to training data, and states the model boundary. Both surfaces expose model-internal contributions without presenting them as biological causes. The dated hosted-demo check and availability warning are recorded in [`demo/README.md`](demo/README.md).
 
 ```bash
 python3.12 -m venv .venv
@@ -167,7 +172,7 @@ jupyter nbconvert \
 - Source notebooks stay stripped for clean review.
 - Bank Marketing is an analysis case study, not a customer-targeting product.
 - Penguins is an educational demo, not a wildlife field tool or production service.
-- The hosted Streamlit demo is available at [ml-notebooks-portfolio-public.streamlit.app](https://ml-notebooks-portfolio-public.streamlit.app/); its dated public-commit check is recorded in [`demo/README.md`](demo/README.md).
+- The hosted Streamlit demo is a secondary, availability-dependent companion at [ml-notebooks-portfolio-public.streamlit.app](https://ml-notebooks-portfolio-public.streamlit.app/); it may sleep or be unavailable, and its dated public checks are recorded in [`demo/README.md`](demo/README.md).
 - The [browser explorer](https://mahmmodabuhani.github.io/applied-ml-notebooks/) is deployed on GitHub Pages as a browser-local artifact. Its [checked-in source](site/index.html) and parity tests remain available for review.
 - No business impact, contact economics, production deployment status, or external usage is claimed.
 
